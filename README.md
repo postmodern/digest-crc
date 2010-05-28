@@ -25,6 +25,8 @@ module.
   * CRC32
   * CRC32 Mpeg
   * CRC64
+* Pure Ruby implementation.
+* Provides CRC Tables for optimized calculations.
 
 ## Install
 
@@ -33,7 +35,7 @@ module.
 ## Thanks
 
 Special thanks go out to the [pycrc](http://www.tty1.net/pycrc/) library
-which is able to generate C code for all of the CRC algorithms,
+which is able to generate C source-code for all of the CRC algorithms,
 including their CRC Tables.
 
 ## License
