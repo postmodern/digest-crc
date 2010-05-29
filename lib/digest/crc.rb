@@ -20,7 +20,7 @@ module Digest
     end
 
     def digest_length
-      self.class.const_get(:WIDTH) / 8
+      (self.class.const_get(:WIDTH) / 8.0).ceil
     end
 
     def update(data)
