@@ -5,7 +5,7 @@ module Digest
 
     INIT_CRC = 0xffff
 
-    XOR_CRC = 0xffff
+    XOR_MASK = 0xffff
 
   end
 end

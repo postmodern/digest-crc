@@ -3,7 +3,7 @@ require 'digest/crc32'
 module Digest
   class CRC32Mpeg < CRC32
 
-    XOR_CRC = 0x00000000
+    XOR_MASK = 0x00000000
 
     TABLE = [
       0x00000000, 0x04c11db7, 0x09823b6e, 0x0d4326d9,

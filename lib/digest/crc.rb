@@ -5,11 +5,11 @@ module Digest
 
     include Digest::Instance
 
-    INIT_CRC = 0xffffffff
+    INIT_CRC = 0x00
 
-    XOR_CRC = 0x000000
+    XOR_MASK = 0x00
 
-    CRC_LENGTH = 4
+    WIDTH = 0
 
     def initialize
       @crc = self.class.const_get(:INIT_CRC)
@@ -20,7 +20,7 @@ module Digest
     end
 
     def digest_length
-      self.class.const_get(:CRC_LENGTH)
+      self.class.const_get(:WIDTH) / 8
     end
 
     def update(data)
@@ -36,7 +36,7 @@ module Digest
     end
 
     def checksum
-      @crc ^ self.class.const_get(:XOR_CRC)
+      @crc ^ self.class.const_get(:XOR_MASK)
     end
 
     def self.pack(crc)

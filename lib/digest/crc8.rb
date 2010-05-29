@@ -3,7 +3,7 @@ require 'digest/crc'
 module Digest
   class CRC8 < CRC
 
-    CRC_LENGTH = 1
+    WIDTH = 8
 
     INIT_CRC = 0x00
 

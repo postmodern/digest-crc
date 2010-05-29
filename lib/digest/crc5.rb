@@ -3,11 +3,11 @@ require 'digest/crc'
 module Digest
   class CRC5 < CRC
 
-    CRC_LENGTH = 1
+    WIDTH = 5
 
     INIT_CRC = 0x1f
 
-    XOR_CRC = 0x1f
+    XOR_MASK = 0x1f
 
     CRC_MASK = (0x1f << 3)
 
