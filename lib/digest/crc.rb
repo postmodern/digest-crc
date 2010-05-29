@@ -11,6 +11,13 @@ module Digest
 
     WIDTH = 0
 
+    def self.checksum(data)
+      crc = self.new
+      crc << data
+
+      return crc.checksum
+    end
+
     def initialize
       @crc = self.class.const_get(:INIT_CRC)
     end
