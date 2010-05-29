@@ -1,7 +1,7 @@
 require 'digest'
 
 module Digest
-  class CRC
+  class CRC < Digest::Class
 
     include Digest::Instance
 
@@ -36,7 +36,7 @@ module Digest
     end
 
     def checksum
-      @crc
+      @crc ^ self.class.const_get(:XOR_CRC)
     end
 
     def self.pack(crc)
@@ -44,7 +44,7 @@ module Digest
     end
 
     def finish
-      self.class.pack(@crc ^ self.class.const_get(:XOR_CRC))
+      self.class.pack(checksum)
     end
 
   end
