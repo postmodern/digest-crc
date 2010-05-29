@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "VERSION",
+     "digest-crc.gemspec",
      "lib/digest/crc.rb",
      "lib/digest/crc16.rb",
      "lib/digest/crc16_ccitt.rb",
@@ -38,7 +39,22 @@ Gem::Specification.new do |s|
      "lib/digest/crc32_mpeg.rb",
      "lib/digest/crc5.rb",
      "lib/digest/crc64.rb",
-     "lib/digest/crc8.rb"
+     "lib/digest/crc8.rb",
+     "spec/crc16_ccitt_spec.rb",
+     "spec/crc16_modbus_spec.rb",
+     "spec/crc16_spec.rb",
+     "spec/crc16_usb_spec.rb",
+     "spec/crc16_xmodem_spec.rb",
+     "spec/crc16_zmodem_spec.rb",
+     "spec/crc24_spec.rb",
+     "spec/crc32_mpeg_spec.rb",
+     "spec/crc32_spec.rb",
+     "spec/crc5_spec.rb",
+     "spec/crc64_spec.rb",
+     "spec/crc8_spec.rb",
+     "spec/crc_examples.rb",
+     "spec/crc_spec.rb",
+     "spec/spec_helper.rb"
   ]
   s.has_rdoc = %q{yard}
   s.homepage = %q{http://github.com/postmodern/digest-crc}
@@ -47,6 +63,23 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A Cyclic Redundancy Check (CRC) library for Ruby.}
+  s.test_files = [
+    "spec/crc_spec.rb",
+     "spec/crc8_spec.rb",
+     "spec/crc64_spec.rb",
+     "spec/spec_helper.rb",
+     "spec/crc32_mpeg_spec.rb",
+     "spec/crc_examples.rb",
+     "spec/crc16_spec.rb",
+     "spec/crc16_xmodem_spec.rb",
+     "spec/crc5_spec.rb",
+     "spec/crc16_usb_spec.rb",
+     "spec/crc16_zmodem_spec.rb",
+     "spec/crc32_spec.rb",
+     "spec/crc24_spec.rb",
+     "spec/crc16_ccitt_spec.rb",
+     "spec/crc16_modbus_spec.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
