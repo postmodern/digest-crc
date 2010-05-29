@@ -3,6 +3,8 @@ require 'digest/crc'
 module Digest
   class CRC5 < CRC
 
+    CRC_LENGTH = 1
+
     INIT_CRC = 0x1f
 
     XOR_CRC = 0x1f
