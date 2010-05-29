@@ -3,7 +3,7 @@ require 'digest/crc'
 module Digest
   class CRC24 < CRC
 
-    DEFAULT_CRC = 0xb704ce
+    INIT_CRC = 0xb704ce
 
     CRC_LENGTH = 3
 
@@ -59,10 +59,6 @@ module Digest
       end
 
       return self
-    end
-
-    def finish
-      self.class.pack(@crc)
     end
 
   end
