@@ -39,6 +39,12 @@ module Digest
       0x6e17, 0x7e36, 0x4e55, 0x5e74, 0x2e93, 0x3eb2, 0x0ed1, 0x1ef0
     ]
 
+    #
+    # Updates the CRC16 checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = ((TABLE[((@crc >> 8) ^ b) & 0xff] ^ (@crc << 8)) & 0xffff)

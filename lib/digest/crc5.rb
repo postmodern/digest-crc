@@ -31,6 +31,12 @@ module Digest
       0x68, 0x18, 0x88, 0xf8, 0xe0, 0x90, 0x00, 0x70, 0x30, 0x40, 0xd0, 0xa0, 0xb8, 0xc8, 0x58, 0x28
     ]
 
+    #
+    # Updates the CRC5 checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = ((TABLE[((@crc >> 3) ^ b) & 0xff] ^ (@crc >> 8)) & CRC_MASK)

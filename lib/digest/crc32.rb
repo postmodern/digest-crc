@@ -77,6 +77,15 @@ module Digest
       0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d
     ]
 
+    #
+    # Packs the CRC32 checksum.
+    #
+    # @param [Integer] crc
+    #   The checksum to pack.
+    #
+    # @return [String]
+    #   The packed checksum.
+    #
     def self.pack(crc)
       buffer = ''
 
@@ -88,6 +97,12 @@ module Digest
       buffer
     end
 
+    #
+    # Updates the CRC32 checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = (((@crc >> 8) & 0x00ffffff) ^ TABLE[(@crc ^ b) & 0xff])

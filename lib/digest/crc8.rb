@@ -27,10 +27,25 @@ module Digest
       0xde, 0xd9, 0xd0, 0xd7, 0xc2, 0xc5, 0xcc, 0xcb, 0xe6, 0xe1, 0xe8, 0xef, 0xfa, 0xfd, 0xf4, 0xf3
     ]
 
+    #
+    # Packs the CRC8 checksum.
+    #
+    # @param [Integer] crc
+    #   The checksum to pack.
+    #
+    # @return [String]
+    #   The packed checksum.
+    #
     def self.pack(crc)
       (crc & 0xff).chr
     end
 
+    #
+    # Updates the CRC8 checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = ((TABLE[(@crc ^ b) & 0xff] ^ (@crc << 8)) & 0xff)

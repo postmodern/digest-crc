@@ -72,6 +72,12 @@ module Digest
       0xbcb4666d, 0xb8757bda, 0xb5365d03, 0xb1f740b4
     ]
 
+    #
+    # Updates the CRC32 Mpeg checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = ((TABLE[((@crc >> 24) ^ b) & 0xff] ^ (@crc << 8)) & 0xffffffff)

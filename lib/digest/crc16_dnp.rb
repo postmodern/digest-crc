@@ -40,6 +40,12 @@ module Digest
       0x91af,  0xa7f1,  0xfd13,  0xcb4d,  0x48d7,  0x7e89,  0x246b,  0x1235
     ]
 
+    #
+    # Updates the CRC16 DNP checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = ((@crc >> 8) ^ TABLE[(@crc ^ b) & 0xff])
