@@ -1,6 +1,7 @@
 ### 0.1.0 / 2010-06-01
 
 * Initial release.
+  * CRC1
   * CRC5
   * CRC8
   * CRC16

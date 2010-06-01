@@ -12,6 +12,7 @@ module.
 ## Features
 
 * Provides support for the following CRC algorithms:
+  * CRC1
   * CRC5
   * CRC8
   * CRC16
