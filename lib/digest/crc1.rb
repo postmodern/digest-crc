@@ -11,7 +11,10 @@ module Digest
     end
 
     def update(data)
-      @crc += data.unpack('c*').reduce(0) { |i,s| i+s } % 256
+      accum = 0
+      data.each_byte { |b| accum += b }
+
+      @crc += (accum % 256)
 
       return self
     end
