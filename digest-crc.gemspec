@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
      "README.md"
   ]
   s.files = [
-    ".specopts",
+    ".gitignore",
+     ".specopts",
      ".yardopts",
      "ChangeLog.md",
      "LICENSE.txt",
@@ -27,6 +28,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "digest-crc.gemspec",
      "lib/digest/crc.rb",
+     "lib/digest/crc1.rb",
      "lib/digest/crc16.rb",
      "lib/digest/crc16_ccitt.rb",
      "lib/digest/crc16_dnp.rb",
@@ -46,6 +48,7 @@ Gem::Specification.new do |s|
      "spec/crc16_usb_spec.rb",
      "spec/crc16_xmodem_spec.rb",
      "spec/crc16_zmodem_spec.rb",
+     "spec/crc1_spec.rb",
      "spec/crc24_spec.rb",
      "spec/crc32_mpeg_spec.rb",
      "spec/crc32_spec.rb",
@@ -73,6 +76,7 @@ Gem::Specification.new do |s|
      "spec/crc16_spec.rb",
      "spec/crc16_xmodem_spec.rb",
      "spec/crc5_spec.rb",
+     "spec/crc1_spec.rb",
      "spec/crc16_usb_spec.rb",
      "spec/crc16_zmodem_spec.rb",
      "spec/crc32_spec.rb",
