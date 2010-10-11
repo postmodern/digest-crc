@@ -1,0 +1,32 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    diff-lcs (1.1.2)
+    git (1.2.5)
+    jeweler (1.5.0.pre3)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
+    rake (0.8.7)
+    rdiscount (1.6.5)
+    rspec (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+      rspec-mocks (= 2.0.0)
+    rspec-core (2.0.0)
+    rspec-expectations (2.0.0)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+    yard (0.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jeweler (~> 1.5.0.pre)
+  rake (~> 0.8.7)
+  rdiscount (~> 1.6.3)
+  rspec (~> 2.0.0)
+  yard (~> 0.6.0)
