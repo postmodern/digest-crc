@@ -2,7 +2,9 @@ require 'rubygems'
 require 'rake'
 
 begin
+  gem 'ore-tasks', '~> 0.1.0'
   require 'ore/tasks'
+
   Ore::Tasks.new
 rescue LoadError => e
   STDERR.puts e.message
@@ -10,7 +12,9 @@ rescue LoadError => e
 end
 
 begin
+  gem 'rspec', '~> 2.0.0'
   require 'rspec/core/rake_task'
+
   RSpec::Core::RakeTask.new
 rescue LoadError => e
   task :spec do
@@ -20,7 +24,9 @@ end
 task :default => :spec
 
 begin
+  gem 'yard', '~> 0.6.0'
   require 'yard'
+
   YARD::Rake::YardocTask.new  
 rescue LoadError => e
   task :yard do
