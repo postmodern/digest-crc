@@ -25,6 +25,7 @@ module.
   * CRC16 ZModem
   * CRC24
   * CRC32
+  * CRC32c
   * CRC32 Mpeg
   * CRC64
 * Pure Ruby implementation.
