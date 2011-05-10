@@ -1,8 +1,9 @@
 # Digest CRC
 
-* [github.com/postmodern/digest-crc](http://github.com/postmodern/digest-crc)
-* [github.com/postmodern/digest-crc/issues](http://github.com/postmodern/digest-crc/issues)
-* Postmodern (postmodern.mod3 at gmail.com)
+* [Source](http://github.com/postmodern/digest-crc)
+* [Issues](http://github.com/postmodern/digest-crc/issues)
+* [Documentation](http://rubydoc.info/gems/digest-crc/frames)
+* [Email](mailto:postmodern.mod3 at gmail.com)
 
 ## Description
 
@@ -31,7 +32,7 @@ module.
 
 ## Install
 
-    $ sudo gem install digest-crc
+    $ gem install digest-crc
 
 ## Examples
 
@@ -69,5 +70,6 @@ including their CRC Tables.
 
 ## License
 
-See {file:LICENSE.txt} for license information.
+Copyright (c) 2010-2011 Hal Brodigan
 
+See {file:LICENSE.txt} for license information.
