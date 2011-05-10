@@ -1,4 +1,5 @@
 name: digest-crc
+version: 0.1.0
 summary: A Cyclic Redundancy Check (CRC) library for Ruby.
 description:
   Adds support for calculating Cyclic Redundancy Check (CRC) to the
