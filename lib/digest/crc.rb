@@ -1,6 +1,9 @@
 require 'digest'
 
 module Digest
+  #
+  # Base class for all CRC algorithms.
+  #
   class CRC < Digest::Class
 
     include Digest::Instance

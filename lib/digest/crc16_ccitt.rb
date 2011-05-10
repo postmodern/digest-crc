@@ -1,6 +1,9 @@
 require 'digest/crc16'
 
 module Digest
+  #
+  # Implements the CRC16 CCITT algorithm.
+  #
   class CRC16CCITT < CRC16
 
     INIT_CRC = 0xffff

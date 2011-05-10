@@ -1,6 +1,9 @@
 require 'digest/crc'
 
 module Digest
+  #
+  # Implements the CRC16 algorithm.
+  #
   class CRC16 < CRC
 
     WIDTH = 16

@@ -1,6 +1,9 @@
 require 'digest/crc'
 
 module Digest
+  #
+  # Implements the CRC1 algorithm.
+  #
   class CRC1 < CRC
 
     TABLE = []

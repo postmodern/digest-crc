@@ -1,6 +1,9 @@
 require 'digest/crc32'
 
 module Digest
+  #
+  # Implements the CRC32 Mpeg algorithm.
+  #
   class CRC32Mpeg < CRC32
 
     XOR_MASK = 0x00000000

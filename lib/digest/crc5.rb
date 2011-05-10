@@ -1,6 +1,9 @@
 require 'digest/crc'
 
 module Digest
+  #
+  # Implements the CRC5 algorithm.
+  #
   class CRC5 < CRC
 
     WIDTH = 5

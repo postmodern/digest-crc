@@ -1,6 +1,9 @@
 require 'digest/crc'
 
 module Digest
+  #
+  # Implements the CRC8 algorithm.
+  #
   class CRC8 < CRC
 
     WIDTH = 8
