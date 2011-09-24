@@ -16,6 +16,7 @@ module.
   * CRC1
   * CRC5
   * CRC8
+  * CRC8 1-Wire
   * CRC16
   * CRC16 CCITT
   * CRC16 DNP
