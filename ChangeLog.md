@@ -1,3 +1,7 @@
+### 0.3.0 / 2011-09-24
+
+* Added {Digest::CRC81Wire} (Henry Garner).
+
 ### 0.2.0 / 2011-05-10
 
 * Added {Digest::CRC32c}.
