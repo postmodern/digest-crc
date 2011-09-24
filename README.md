@@ -13,22 +13,22 @@ module.
 ## Features
 
 * Provides support for the following CRC algorithms:
-  * CRC1
-  * CRC5
-  * CRC8
-  * CRC8 1-Wire
-  * CRC16
-  * CRC16 CCITT
-  * CRC16 DNP
-  * CRC16 Modbus
-  * CRC16 USB
-  * CRC16 XModem
-  * CRC16 ZModem
-  * CRC24
-  * CRC32
-  * CRC32c
-  * CRC32 Mpeg
-  * CRC64
+  * {Digest::CRC1 CRC1}
+  * {Digest::CRC5 CRC5}
+  * {Digest::CRC8 CRC8}
+  * {Digest::CRC81Wire CRC8 1-Wire}
+  * {Digest::CRC16 CRC16}
+  * {Digest::CRC16CCITT CRC16 CCITT}
+  * {Digest::CRC16DNP CRC16 DNP}
+  * {Digest::CRC16Modbus CRC16 Modbus}
+  * {Digest::CRC16USB CRC16 USB}
+  * {Digest::CRC16XModem CRC16 XModem}
+  * {Digest::CRC16ZModem CRC16 ZModem}
+  * {Digest::CRC24 CRC24}
+  * {Digest::CRC32 CRC32}
+  * {Digest::CRC32c CRC32c}
+  * {Digest::CRC32Mpeg CRC32 Mpeg}
+  * {Digest::CRC64 CRC64}
 * Pure Ruby implementation.
 * Provides CRC Tables for optimized calculations.
 
