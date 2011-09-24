@@ -3,10 +3,8 @@ require 'crc_examples'
 require 'digest/crc8_1wire'
 
 describe Digest::CRC81Wire do
-  before(:all) do
-    @string = '1234567890'
-    @expected = '4f'
-  end
+  let(:string)   { '1234567890' }
+  let(:expected) { '4f' }
 
   it_should_behave_like "CRC"
 end

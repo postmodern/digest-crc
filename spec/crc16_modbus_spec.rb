@@ -3,10 +3,8 @@ require 'crc_examples'
 require 'digest/crc16_modbus'
 
 describe Digest::CRC16Modbus do
-  before(:all) do
-    @string = '1234567890'
-    @expected = 'c20a'
-  end
+  let(:string)   { '1234567890' }
+  let(:expected) { 'c20a' }
 
   it_should_behave_like "CRC"
 end

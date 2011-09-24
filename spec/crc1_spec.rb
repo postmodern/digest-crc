@@ -3,10 +3,8 @@ require 'crc_examples'
 require 'digest/crc1'
 
 describe Digest::CRC1 do
-  before(:all) do
-    @string = '1234567890'
-    @expected = '0d'
-  end
+  let(:string) { '1234567890' }
+  let(:expected) { '0d' }
 
   it_should_behave_like "CRC"
 end

@@ -3,10 +3,8 @@ require 'crc_examples'
 require 'digest/crc32_mpeg'
 
 describe Digest::CRC32Mpeg do
-  before(:all) do
-    @string = '1234567890'
-    @expected = 'af97ac49'
-  end
+  let(:string)   { '1234567890' }
+  let(:expected) { 'af97ac49' }
 
   it_should_behave_like "CRC"
 end
