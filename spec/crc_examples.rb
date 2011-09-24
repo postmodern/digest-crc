@@ -2,7 +2,7 @@ require 'spec_helper'
 
 shared_examples_for "CRC" do
   it "should calculate a checksum for text" do
-    @crc_class.hexdigest(@string).should == @expected
+    described_class.hexdigest(@string).should == @expected
   end
 
   it "should calculate a checksum for multiple data" do
@@ -11,7 +11,7 @@ shared_examples_for "CRC" do
     chunk1 = @string[0...middle]
     chunk2 = @string[middle..-1]
 
-    crc = @crc_class.new
+    crc = subject
     crc << chunk1
     crc << chunk2
 
@@ -19,7 +19,7 @@ shared_examples_for "CRC" do
   end
 
   it "should provide direct access to the checksum value" do
-    crc = @crc_class.new
+    crc = subject
     crc << @string
 
     crc.checksum.should == @expected.to_i(16)

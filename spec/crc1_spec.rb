@@ -4,7 +4,6 @@ require 'digest/crc1'
 
 describe Digest::CRC1 do
   before(:all) do
-    @crc_class = Digest::CRC1
     @string = '1234567890'
     @expected = '0d'
   end

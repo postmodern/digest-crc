@@ -4,7 +4,6 @@ require 'digest/crc32_mpeg'
 
 describe Digest::CRC32Mpeg do
   before(:all) do
-    @crc_class = Digest::CRC32Mpeg
     @string = '1234567890'
     @expected = 'af97ac49'
   end

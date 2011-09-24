@@ -4,7 +4,6 @@ require 'digest/crc16_modbus'
 
 describe Digest::CRC16Modbus do
   before(:all) do
-    @crc_class = Digest::CRC16Modbus
     @string = '1234567890'
     @expected = 'c20a'
   end
