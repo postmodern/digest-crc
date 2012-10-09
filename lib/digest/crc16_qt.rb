@@ -4,6 +4,8 @@ module Digest
   #
   # Implements the CRC16_CCITT algorithm used in QT algorithms.
   #
+  # @author Matthew Bednarski
+  #
   class CRC16QT < CRC16CCITT
     FINAL_XOR = 0xffff
     REVERSE_CRC_RESULT = true
