@@ -27,12 +27,7 @@ module Digest
       crc ^= FINAL_XOR      if FINAL_XOR
       crc = revert_bits crc if REVERSE_CRC_RESULT
 
-      buffer = ''
-
-      buffer << ((crc & 0xff00) >> 8).chr
-      buffer << (crc & 0xff).chr
-
-      buffer
+      return super(crc)
     end
 
     #
