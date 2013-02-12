@@ -14,23 +14,6 @@ module Digest
 
     REVERSE_DATA = true
 
-    #
-    # Packs the CRC16 checksum.
-    #
-    # @param [Integer] crc
-    #   The CRC16 checksum to pack.
-    #
-    # @return [String]
-    #   The packed CRC16 checksum.
-    #
-    def self.pack(crc)
-      crc ^= FINAL_XOR      if FINAL_XOR
-      crc = revert_bits crc if REVERSE_CRC_RESULT
-
-      return super(crc)
-    end
-
-    #
     # Updates the CRC16 checksum.
     #
     # @param [String] data
@@ -45,9 +28,16 @@ module Digest
       return self
     end
 
+    def checksum
+      crc = @crc + 0
+      crc ^= FINAL_XOR      if FINAL_XOR
+      crc = revert_bits crc if REVERSE_CRC_RESULT
+      return crc
+    end
+
     protected
 
-    def self.revert_bits(cc)
+    def revert_bits(cc)
       ob = 0
       b  = (1 << 15)
 
@@ -70,5 +60,6 @@ module Digest
 
       return ob
     end
+
   end
 end
