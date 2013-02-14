@@ -1,3 +1,7 @@
+### 0.4.0 / 2013-02-13
+
+* Added {Digest::CRC16QT}.
+
 ### 0.3.0 / 2011-09-24
 
 * Added {Digest::CRC81Wire} (Henry Garner).
