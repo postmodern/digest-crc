@@ -72,6 +72,6 @@ including their CRC Tables.
 
 ## License
 
-Copyright (c) 2010-2012 Hal Brodigan
+Copyright (c) 2010-2013 Hal Brodigan
 
 See {file:LICENSE.txt} for license information.
