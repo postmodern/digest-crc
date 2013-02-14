@@ -24,6 +24,7 @@ module.
   * {Digest::CRC16USB CRC16 USB}
   * {Digest::CRC16XModem CRC16 XModem}
   * {Digest::CRC16ZModem CRC16 ZModem}
+  * {Digest::CRC16QT CRC16 QT}
   * {Digest::CRC24 CRC24}
   * {Digest::CRC32 CRC32}
   * {Digest::CRC32c CRC32c}
