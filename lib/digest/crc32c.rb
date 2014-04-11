@@ -74,19 +74,5 @@ module Digest
       0xbe2da0a5, 0x4c4623a6, 0x5f16d052, 0xad7d5351
     ]
 
-    #
-    # Updates the CRC32 checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = (((@crc >> 8) & 0x00ffffff) ^ TABLE[(@crc ^ b) & 0xff])
-      end
-
-      return self
-    end
-
   end
 end

@@ -44,19 +44,5 @@ module Digest
       0x8201, 0x42c0, 0x4380, 0x8341, 0x4100, 0x81c1, 0x8081, 0x4040
     ]
 
-    #
-    # Updates the CRC16 Modbus checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = (((@crc >> 8) ^ TABLE[(b ^ @crc) & 0xff]) & 0xffff)
-      end
-
-      return self
-    end
-
   end
 end
