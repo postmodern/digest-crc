@@ -35,35 +35,45 @@ module.
 
 ## Install
 
-    $ gem install digest-crc
+```sh
+gem install digest-crc
+```
 
 ## Examples
 
 Calculate a CRC32:
 
-    require 'digest/crc32'
+```ruby
+require 'digest/crc32'
 
-    Digest::CRC32.hexdigest('hello')
-    # => "3610a686"
+Digest::CRC32.hexdigest('hello')
+# => "3610a686"
+```
 
 Calculate a CRC32 of a file:
 
-    Digest::CRC32.file('README.md')
-    # => #<Digest::CRC32: 127ad531>
+```ruby
+Digest::CRC32.file('README.md')
+# => #<Digest::CRC32: 127ad531>
+```
 
 Incrementally calculate a CRC32:
 
-    crc = Digest::CRC32.new
-    crc << 'one'
-    crc << 'two'
-    crc << 'three'
-    crc.hexdigest
-    # => "09e1c092"
+```ruby
+crc = Digest::CRC32.new
+crc << 'one'
+crc << 'two'
+crc << 'three'
+crc.hexdigest
+# => "09e1c092"
+```
 
 Directly access the checksum:
 
-    crc.checksum
-    # => 165789842
+```ruby
+crc.checksum
+# => 165789842
+```
 
 ## Thanks
 
