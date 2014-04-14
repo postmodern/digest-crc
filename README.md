@@ -35,7 +35,7 @@ module.
 
 ## Install
 
-```sh
+```
 gem install digest-crc
 ```
 
