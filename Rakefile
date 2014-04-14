@@ -26,9 +26,13 @@ task :default => :spec
 
 begin
   gem 'yard', '~> 0.8'
+  gem 'redcarpet'
+  gem 'github-markup'
   require 'yard'
+  require 'redcarpet'
+  require 'github-markup'
 
-  YARD::Rake::YardocTask.new  
+  YARD::Rake::YardocTask.new
 rescue LoadError => e
   task :yard do
     abort "Please run `gem install yard` to install YARD."
