@@ -75,6 +75,27 @@ crc.checksum
 # => 165789842
 ```
 
+Need another crc-table?
+Just specify your class inherited from the standard one, and redefine `TABLE`:
+
+```ruby
+class MyAwesomeCRC16CCITT < Digest::CRC16CCITT
+  # Values, generated specifically for you tasks,
+  # or given from some other library.
+  TABLE = [
+      0x0000, 0x8005, 0x800f, 0x000a, 0x801b, 0x001e, 0x0014, 0x8011,
+      0x8033, 0x0036, 0x003c, 0x8039, 0x0028, 0x802d, 0x8027, 0x0022,
+      # etc...
+  ].freeze
+end
+
+Digest::CRC16CCITT.hexdigest('hello')
+# => "d26e"
+
+MyAwesomeCRC16CCITT.hexdigest('hello')
+# => "1cc5"
+```
+
 ## Thanks
 
 Special thanks go out to the [pycrc](http://www.tty1.net/pycrc/) library

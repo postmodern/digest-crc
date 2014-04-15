@@ -10,3 +10,9 @@ describe Digest::CRC5 do
     it_should_behave_like "CRC"
   end
 end
+
+describe 'Nested class from Digest::CRC5' do
+  pending 'Implementation of CRC5 does not match pycrc.py' do
+    include_context 'custom CRC classes', Digest::CRC5, '1234567890', '1'
+  end
+end

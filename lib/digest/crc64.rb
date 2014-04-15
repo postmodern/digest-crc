@@ -78,7 +78,7 @@ module Digest
       0x9fc0000000000000, 0x9e70000000000000, 0x9ca0000000000000, 0x9d10000000000000,
       0x9480000000000000, 0x9530000000000000, 0x97e0000000000000, 0x9650000000000000,
       0x9240000000000000, 0x93f0000000000000, 0x9120000000000000, 0x9090000000000000
-    ]
+    ].freeze
 
     #
     # Packs the CRC64 checksum.
@@ -111,8 +111,9 @@ module Digest
     #   The data to update the checksum with.
     #
     def update(data)
+      table = self.class.const_get(:TABLE)
       data.each_byte do |b|
-        @crc = ((TABLE[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffffffffffffffff)
+        @crc = ((table[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffffffffffffffff)
       end
 
       return self

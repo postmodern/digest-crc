@@ -44,7 +44,7 @@ module Digest
       0x4e00, 0x8ec1, 0x8f81, 0x4f40, 0x8d01, 0x4dc0, 0x4c80, 0x8c41,
       0x4400, 0x84c1, 0x8581, 0x4540, 0x8701, 0x47c0, 0x4680, 0x8641,
       0x8201, 0x42c0, 0x4380, 0x8341, 0x4100, 0x81c1, 0x8081, 0x4040
-    ]
+    ].freeze
 
     #
     # Packs the CRC16 checksum.
@@ -71,8 +71,9 @@ module Digest
     #   The data to update the checksum with.
     #
     def update(data)
+      table = self.class.const_get(:TABLE)
       data.each_byte do |b|
-        @crc = ((TABLE[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffff)
+        @crc = ((table[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffff)
       end
 
       return self

@@ -41,7 +41,7 @@ module Digest
       0x23c4,  0x159a,  0x4f78,  0x7926,  0xfabc,  0xcce2,  0x9600,  0xa05e,
       0x6e26,  0x5878,  0x029a,  0x34c4,  0xb75e,  0x8100,  0xdbe2,  0xedbc,
       0x91af,  0xa7f1,  0xfd13,  0xcb4d,  0x48d7,  0x7e89,  0x246b,  0x1235
-    ]
+    ].freeze
 
     #
     # Updates the CRC16 DNP checksum.
@@ -50,8 +50,9 @@ module Digest
     #   The data to update the checksum with.
     #
     def update(data)
+      table = self.class.const_get(:TABLE)
       data.each_byte do |b|
-        @crc = ((@crc >> 8) ^ TABLE[(@crc ^ b) & 0xff])
+        @crc = ((@crc >> 8) ^ table[(@crc ^ b) & 0xff])
       end
 
       return self

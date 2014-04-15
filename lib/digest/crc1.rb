@@ -6,7 +6,7 @@ module Digest
   #
   class CRC1 < CRC
 
-    TABLE = []
+    TABLE = [].freeze
     CRC_MASK = 0x00
 
     #
