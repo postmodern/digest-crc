@@ -8,3 +8,7 @@ describe Digest::CRC16XModem do
 
   it_should_behave_like "CRC"
 end
+
+describe 'Nested class from Digest::CRC16XModem' do
+  include_context 'custom CRC classes', Digest::CRC16XModem, '1234567890', '6aa7'
+end

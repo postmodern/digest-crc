@@ -8,3 +8,7 @@ describe Digest::CRC81Wire do
 
   it_should_behave_like "CRC"
 end
+
+describe 'Nested class from Digest::CRC81Wire' do
+  include_context 'custom CRC classes', Digest::CRC81Wire, '1234567890', '52'
+end

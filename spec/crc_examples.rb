@@ -25,3 +25,12 @@ shared_examples_for "CRC" do
     crc.checksum.should == expected.to_i(16)
   end
 end
+
+shared_context 'custom CRC classes' do |class_name, test_string, expected_result|
+  describe Helpers.create_new_class_from(class_name) do
+    let(:string) { test_string }
+    let(:expected) { expected_result }
+
+    it_should_behave_like 'CRC'
+  end
+end

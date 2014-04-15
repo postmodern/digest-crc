@@ -8,3 +8,7 @@ describe Digest::CRC32 do
 
   it_should_behave_like "CRC"
 end
+
+describe 'Nested class from Digest::CRC32' do
+  include_context 'custom CRC classes', Digest::CRC32, '1234567890', '6448cd9a'
+end
