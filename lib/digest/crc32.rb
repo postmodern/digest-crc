@@ -78,7 +78,7 @@ module Digest
       0xbad03605, 0xcdd70693, 0x54de5729, 0x23d967bf,
       0xb3667a2e, 0xc4614ab8, 0x5d681b02, 0x2a6f2b94,
       0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d
-    ]
+    ].freeze
 
     #
     # Packs the CRC32 checksum.
