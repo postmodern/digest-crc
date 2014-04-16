@@ -6,9 +6,6 @@ module Digest
   #
   class CRC1 < CRC
 
-    TABLE = [].freeze
-    CRC_MASK = 0x00
-
     #
     # Packs the CRC1 checksum.
     #
