@@ -71,9 +71,8 @@ module Digest
     #   The data to update the checksum with.
     #
     def update(data)
-      table = self.class.const_get(:TABLE)
       data.each_byte do |b|
-        @crc = ((table[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffff)
+        @crc = ((@table[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffff)
       end
 
       return self

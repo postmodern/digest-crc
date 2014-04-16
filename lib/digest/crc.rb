@@ -17,6 +17,9 @@ module Digest
     # The bit width of the CRC checksum
     WIDTH = 0
 
+    # Default place holder CRC table
+    TABLE = [].freeze
+
     #
     # Calculates the CRC checksum.
     #
@@ -47,7 +50,8 @@ module Digest
     # Initializes the CRC checksum.
     #
     def initialize
-      @crc = self.class.const_get(:INIT_CRC)
+      @table = self.class.const_get(:TABLE)
+      @crc   = self.class.const_get(:INIT_CRC)
     end
 
     #
