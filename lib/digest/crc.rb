@@ -50,7 +50,10 @@ module Digest
     # Initializes the CRC checksum.
     #
     def initialize
-      @table = self.class.const_get(:TABLE)
+      @init_crc = self.class.const_get(:INIT_CRC)
+      @xor_mask = self.class.const_get(:XOR_MASK)
+      @width    = self.class.const_get(:WIDTH)
+      @table    = self.class.const_get(:TABLE)
 
       reset
     end
@@ -71,7 +74,7 @@ module Digest
     #   The length in bytes.
     #
     def digest_length
-      (self.class.const_get(:WIDTH) / 8.0).ceil
+      (@width / 8.0).ceil
     end
 
     #
@@ -98,7 +101,7 @@ module Digest
     #   The default value of the CRC checksum.
     #
     def reset
-      @crc = self.class.const_get(:INIT_CRC)
+      @crc = @init_crc
     end
 
     #
@@ -108,7 +111,7 @@ module Digest
     #   The resulting CRC checksum.
     #
     def checksum
-      @crc ^ self.class.const_get(:XOR_MASK)
+      @crc ^ @xor_mask
     end
 
     #
