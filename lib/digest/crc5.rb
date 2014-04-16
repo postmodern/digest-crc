@@ -35,6 +35,15 @@ module Digest
     ].freeze
 
     #
+    # Initializes the CRC5 instance.
+    #
+    def initialize
+      @crc_mask = self.class.const_get(:CRC_MASK)
+
+      super
+    end
+
+    #
     # Updates the CRC5 checksum.
     #
     # @param [String] data
@@ -42,7 +51,7 @@ module Digest
     #
     def update(data)
       data.each_byte do |b|
-        @crc = ((@table[((@crc >> 3) ^ b) & 0xff] ^ (@crc >> 8)) & CRC_MASK)
+        @crc = ((@table[((@crc >> 3) ^ b) & 0xff] ^ (@crc >> 8)) & @crc_mask)
       end
 
       return self
