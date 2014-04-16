@@ -51,7 +51,8 @@ module Digest
     #
     def initialize
       @table = self.class.const_get(:TABLE)
-      @crc   = self.class.const_get(:INIT_CRC)
+
+      reset
     end
 
     #
