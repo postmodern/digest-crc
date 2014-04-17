@@ -18,7 +18,7 @@ begin
   RSpec::Core::RakeTask.new
 rescue LoadError => e
   task :spec do
-    puts e.message
+    abort e.message
   end
 end
 task :test => :spec
@@ -35,6 +35,6 @@ begin
   YARD::Rake::YardocTask.new
 rescue LoadError => e
   task :yard do
-    puts e.message
+    abort e.message
   end
 end
