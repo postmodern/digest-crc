@@ -112,6 +112,6 @@ including their CRC Tables.
 
 ## License
 
-Copyright (c) 2010-2013 Hal Brodigan
+Copyright (c) 2010-2014 Hal Brodigan
 
 See [LICENSE.txt](LICENSE.txt) for license information.
