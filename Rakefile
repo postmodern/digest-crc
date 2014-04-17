@@ -18,7 +18,7 @@ begin
   RSpec::Core::RakeTask.new
 rescue LoadError => e
   task :spec do
-    abort "Please run `gem install rspec` to install RSpec."
+    puts e.message
   end
 end
 task :test => :spec
@@ -35,6 +35,6 @@ begin
   YARD::Rake::YardocTask.new
 rescue LoadError => e
   task :yard do
-    abort "Please run `gem install yard` to install YARD."
+    puts e.message
   end
 end
