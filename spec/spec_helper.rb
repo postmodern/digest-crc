@@ -1,2 +1,1 @@
-gem 'rspec', '~> 2.4'
-require 'rspec'
+# Specify some spec-helpers and additional requires here.
