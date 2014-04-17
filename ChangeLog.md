@@ -1,3 +1,9 @@
+### 0.4.1 / 2014-04-16
+
+* Allow Digest CRC classes to be extended and their constants overriden.
+* Allow {Digest::CRC5::CRC_MASK} to be overriden by subclasses.
+* {Digest::CRC81Wire} now inherites from {Digest::CRC8}.
+
 ### 0.4.0 / 2013-02-13
 
 * Added {Digest::CRC16QT}.
