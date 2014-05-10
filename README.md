@@ -114,4 +114,4 @@ including their CRC Tables.
 
 Copyright (c) 2010-2014 Hal Brodigan
 
-See [LICENSE.txt](LICENSE.txt) for license information.
+See {file:LICENSE.txt} for license information.
