@@ -2,7 +2,7 @@ require 'spec_helper'
 
 shared_examples_for "CRC" do
   it "should calculate a checksum for text" do
-    described_class.hexdigest(string).should == expected
+    expect(described_class.hexdigest(string)).to be == expected
   end
 
   it "should calculate a checksum for multiple data" do
@@ -15,13 +15,13 @@ shared_examples_for "CRC" do
     crc << chunk1
     crc << chunk2
 
-    crc.hexdigest.should == expected
+    expect(crc.hexdigest).to be == expected
   end
 
   it "should provide direct access to the checksum value" do
     crc = subject
     crc << string
 
-    crc.checksum.should == expected.to_i(16)
+    expect(crc.checksum).to be == expected.to_i(16)
   end
 end

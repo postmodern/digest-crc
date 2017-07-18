@@ -5,11 +5,11 @@ describe Digest::CRC do
   it "should define block_length of 1" do
     crc = subject
 
-    crc.block_length.should == 1
+    expect(crc.block_length).to be 1
   end
 
   it "should pack to an empty String by default" do
-    described_class.pack(0).should be_empty
+    expect(described_class.pack(0)).to be_empty
   end
 
   context "when inherited" do
@@ -26,38 +26,38 @@ describe Digest::CRC do
     end
 
     it "should override WIDTH" do
-      subject::WIDTH.should_not == described_class::WIDTH
+      expect(subject::WIDTH).not_to be described_class::WIDTH
     end
 
     it "should override INIT_CRC" do
-      subject::INIT_CRC.should_not == described_class::INIT_CRC
+      expect(subject::INIT_CRC).not_to be described_class::INIT_CRC
     end
 
     it "should override XOR_MASK" do
-      subject::XOR_MASK.should_not == described_class::XOR_MASK
+      expect(subject::XOR_MASK).not_to be described_class::XOR_MASK
     end
 
     it "should override TABLE" do
-      subject::TABLE.should_not == described_class::TABLE
+      expect(subject::TABLE).not_to be described_class::TABLE
     end
 
     describe "#initialize" do
       let(:instance) { subject.new }
 
       it "should initialize @init_crc" do
-        instance.instance_variable_get("@init_crc").should == subject::INIT_CRC
+        expect(instance.instance_variable_get("@init_crc")).to be subject::INIT_CRC
       end
 
       it "should initialize @xor_mask" do
-        instance.instance_variable_get("@xor_mask").should == subject::XOR_MASK
+        expect(instance.instance_variable_get("@xor_mask")).to be subject::XOR_MASK
       end
 
       it "should initialize @width" do
-        instance.instance_variable_get("@width").should == subject::WIDTH
+        expect(instance.instance_variable_get("@width")).to be subject::WIDTH
       end
 
       it "should initialize @table" do
-        instance.instance_variable_get("@table").should == subject::TABLE
+        expect(instance.instance_variable_get("@table")).to be subject::TABLE
       end
     end
   end
