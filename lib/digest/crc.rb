@@ -95,7 +95,7 @@ module Digest
     end
 
     #
-    # @see {#update}
+    # @see #update
     #
     def <<(data)
       update(data)
@@ -125,7 +125,7 @@ module Digest
     #
     # Finishes the CRC checksum calculation.
     #
-    # @see {pack}
+    # @see pack
     #
     def finish
       self.class.pack(checksum)
