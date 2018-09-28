@@ -39,11 +39,16 @@ module Digest
     #
     # Packs the given CRC checksum.
     #
+    # @param [Integer] crc
+    #   The raw CRC checksum.
+    #
     # @return [String]
     #   The packed CRC checksum.
     #
+    # @abstract
+    #
     def self.pack(crc)
-      ''
+      raise(NotImplementedError,"#{self.class}##{__method__} not implemented")
     end
 
     #
@@ -83,7 +88,10 @@ module Digest
     # @param [String] data
     #   The data to update the CRC checksum with.
     #
+    # @abstract
+    #
     def update(data)
+      raise(NotImplementedError,"#{self.class}##{__method__} not implemented")
     end
 
     #

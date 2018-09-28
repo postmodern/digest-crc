@@ -2,14 +2,22 @@ require 'spec_helper'
 require 'digest/crc'
 
 describe Digest::CRC do
-  it "should define block_length of 1" do
-    crc = subject
-
-    expect(crc.block_length).to be 1
+  describe "#block_length" do
+    it { expect(subject.block_length).to be 1 }
   end
 
-  it "should pack to an empty String by default" do
-    expect(described_class.pack(0)).to be_empty
+  describe ".pack" do
+    subject { described_class }
+
+    it do
+      expect { subject.pack(0) }.to raise_error(NotImplementedError)
+    end
+  end
+
+  describe "#update" do
+    it do
+      expect { subject.update('') }.to raise_error(NotImplementedError)
+    end
   end
 
   context "when inherited" do
