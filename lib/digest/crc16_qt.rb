@@ -30,8 +30,8 @@ module Digest
 
     def checksum
       crc = @crc + 0
-      crc ^= FINAL_XOR      if FINAL_XOR
-      crc = revert_bits crc if REVERSE_CRC_RESULT
+      crc ^= FINAL_XOR       if FINAL_XOR
+      crc = revert_bits(crc) if REVERSE_CRC_RESULT
       return crc
     end
 
