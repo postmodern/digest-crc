@@ -1,4 +1,4 @@
-require 'digest/crc'
+require 'digest/crc8'
 
 module Digest
   #
