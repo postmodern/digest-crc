@@ -14,6 +14,7 @@ module Digest
 
     REVERSE_DATA = true
 
+    #
     # Updates the CRC16 checksum.
     #
     # @param [String] data
