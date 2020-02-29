@@ -16,6 +16,9 @@ metadata:
   bug_tracker_uri: https://github.com/postmodern/digest-crc/issues
   changelog_uri: https://github.com/postmodern/digest-crc/blob/master/ChangeLog.md
 
+extensions:
+ - ext/digest/Rakefile
+
 has_yard: true
 
 development_dependencies:
