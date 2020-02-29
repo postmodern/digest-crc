@@ -10,10 +10,6 @@ module Digest
 
     FINAL_XOR = 0xffff
 
-    REVERSE_CRC_RESULT = true
-
-    REVERSE_DATA = true
-
     #
     # Updates the CRC16 checksum.
     #
@@ -22,7 +18,7 @@ module Digest
     #
     def update(data)
       data.each_byte do |b|
-        b = revert_byte(b) if REVERSE_DATA
+        b = revert_byte(b)
         @crc = ((@table[((@crc >> 8) ^ b) & 0xff] ^ (@crc << 8)) & 0xffff)
       end
 
@@ -31,8 +27,8 @@ module Digest
 
     def checksum
       crc = super
-      crc ^= FINAL_XOR       if FINAL_XOR
-      crc = revert_bits(crc) if REVERSE_CRC_RESULT
+      crc ^= FINAL_XOR
+      crc = revert_bits(crc)
       return crc
     end
 
