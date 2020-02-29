@@ -20,6 +20,7 @@ module.
   * {Digest::CRC16 CRC16}
   * {Digest::CRC16CCITT CRC16 CCITT}
   * {Digest::CRC16DNP CRC16 DNP}
+  * {Digest::CRC16Kermit CRC16 Kermit}
   * {Digest::CRC16Modbus CRC16 Modbus}
   * {Digest::CRC16USB CRC16 USB}
   * {Digest::CRC16XModem CRC16 XModem}
