@@ -108,7 +108,7 @@ module Digest
     #
     def update(data)
       data.each_byte do |b|
-        @crc = (((@crc >> 8) & 0x00ffffff) ^ @table[(@crc ^ b) & 0xff])
+        @crc = @table[(@crc ^ b) & 0xff] ^ ((@crc >> 8) & 0xffffffff)
       end
 
       return self
