@@ -4,6 +4,8 @@ module Digest
   #
   # Implements the CRC64 XZ algorithm.
   #
+  # @since 0.5.0
+  #
   class CRC64XZ < CRC64
 
     INIT_XOR = 0xffffffffffffffff

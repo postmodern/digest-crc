@@ -4,6 +4,8 @@ module Digest
   #
   # Implements the CRC15 algorithm.
   #
+  # @since 0.5.0
+  #
   class CRC15 < CRC
 
     WIDTH = 15

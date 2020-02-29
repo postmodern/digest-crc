@@ -4,6 +4,8 @@ module Digest
   #
   # Implements the CRC64 Jones algorithm.
   #
+  # @since 0.5.0
+  #
   class CRC64Jones < CRC64
 
     INIT_XOR = 0xffffffffffffffff
