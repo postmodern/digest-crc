@@ -25,6 +25,11 @@ module Digest
       return self
     end
 
+    #
+    # Calculates the CRC checksum value.
+    #
+    # @return [Integer]
+    #
     def checksum
       crc = super
       crc ^= FINAL_XOR
