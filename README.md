@@ -31,6 +31,7 @@ module.
   * {Digest::CRC16QT CRC16 QT}
   * {Digest::CRC24 CRC24}
   * {Digest::CRC32 CRC32}
+  * {Digest::CRC32BZip2 CRC32 BZip2}
   * {Digest::CRC32c CRC32c}
   * {Digest::CRC32Jam CRC32 Jam}
   * {Digest::CRC32Mpeg CRC32 Mpeg}
