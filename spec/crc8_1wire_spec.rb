@@ -8,3 +8,9 @@ describe Digest::CRC8_1Wire do
 
   it_should_behave_like "CRC"
 end
+
+describe "Digest::CRC81Wire" do
+  subject { Digest::CRC81Wire }
+
+  it { expect(subject).to eq(Digest::CRC8_1Wire) }
+end

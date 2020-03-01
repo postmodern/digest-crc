@@ -8,3 +8,9 @@ describe Digest::CRC32MPEG do
 
   it_should_behave_like "CRC"
 end
+
+describe "Digest::CRC32Mpeg" do
+  subject { Digest::CRC32Mpeg }
+
+  it { expect(subject).to eq(Digest::CRC32MPEG) }
+end
