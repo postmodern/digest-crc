@@ -4,7 +4,7 @@ module Digest
   #
   # Implements the CRC32 Mpeg algorithm.
   #
-  class CRC32Mpeg < CRC32
+  class CRC32MPEG < CRC32
 
     XOR_MASK = 0x00000000
 
@@ -91,4 +91,7 @@ module Digest
     end
 
   end
+
+  # @deprecated Please use {CRC32MPEG}.
+  CRC32Mpeg = CRC32MPEG
 end

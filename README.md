@@ -34,7 +34,7 @@ module.
   * {Digest::CRC32BZip2 CRC32 BZip2}
   * {Digest::CRC32c CRC32c}
   * {Digest::CRC32Jam CRC32 Jam}
-  * {Digest::CRC32Mpeg CRC32 Mpeg}
+  * {Digest::CRC32MPEG CRC32 MPEG}
   * {Digest::CRC32POSIX CRC32 POSIX}
   * {Digest::CRC32XFER CRC32 XFER}
   * {Digest::CRC64 CRC64}

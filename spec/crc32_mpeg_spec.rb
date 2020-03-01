@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'crc_examples'
 require 'digest/crc32_mpeg'
 
-describe Digest::CRC32Mpeg do
+describe Digest::CRC32MPEG do
   let(:string)   { '1234567890' }
   let(:expected) { 'af97ac49' }
 
