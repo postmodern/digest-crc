@@ -32,6 +32,7 @@ module.
   * {Digest::CRC24 CRC24}
   * {Digest::CRC32 CRC32}
   * {Digest::CRC32c CRC32c}
+  * {Digest::CRC32Jam CRC32 Jam}
   * {Digest::CRC32Mpeg CRC32 Mpeg}
   * {Digest::CRC32POSIX CRC32 POSIX}
   * {Digest::CRC32XFER CRC32 XFER}
