@@ -3,23 +3,23 @@ require 'benchmark'
 $LOAD_PATH.unshift(File.expand_path('lib'))
 
 CRCs = {
+  'crc1'         => 'CRC1',
   'crc5'         => 'CRC5',
-  'crc16_ccitt'  => 'CRC16CCITT',
-  'crc24'        => 'CRC24',
-  'crc16_modbus' => 'CRC16Modbus',
-  'crc16_zmodem' => 'CRC16ZModem',
-  'crc64'        => 'CRC64',
-  'crc32_mpeg'   => 'CRC32Mpeg',
-  'crc16_dnp'    => 'CRC16DNP',
+  'crc8'         => 'CRC8',
+  'crc8_1wire'   => 'CRC81Wire',
   'crc16'        => 'CRC16',
+  'crc16_ccitt'  => 'CRC16CCITT',
+  'crc16_dnp'    => 'CRC16DNP',
+  'crc16_modbus' => 'CRC16Modbus',
+  'crc16_qt'     => 'CRC16QT',
+  'crc16_usb'    => 'CRC16USB',
+  'crc16_xmodem' => 'CRC16XModem',
+  'crc16_zmodem' => 'CRC16ZModem',
+  'crc24'        => 'CRC24',
   'crc32'        => 'CRC32',
   'crc32c'       => 'CRC32c',
-  'crc16_xmodem' => 'CRC16XModem',
-  'crc8_1wire'   => 'CRC81Wire',
-  'crc16_usb'    => 'CRC16USB',
-  'crc16_qt'     => 'CRC16QT',
-  'crc1'         => 'CRC1',
-  'crc8'         => 'CRC8'
+  'crc32_mpeg'   => 'CRC32Mpeg',
+  'crc64'        => 'CRC64',
 }
 
 puts "Loading Digest::CRC classes ..."
