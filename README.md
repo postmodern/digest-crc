@@ -16,7 +16,7 @@ module.
   * {Digest::CRC1 CRC1}
   * {Digest::CRC5 CRC5}
   * {Digest::CRC8 CRC8}
-  * {Digest::CRC81Wire CRC8 1-Wire}
+  * {Digest::CRC8_1Wire CRC8 1-Wire}
   * {Digest::CRC15 CRC15}
   * {Digest::CRC16 CRC16}
   * {Digest::CRC16CCITT CRC16 CCITT}
