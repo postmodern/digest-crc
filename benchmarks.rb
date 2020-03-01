@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'benchmark'
 $LOAD_PATH.unshift(File.expand_path('lib'))
 
