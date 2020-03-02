@@ -1,3 +1,9 @@
+### 0.4.2 / 2020-03-01
+
+* Corrected the logic in {Digest::CRC32#update}.
+* Added missing {Digest::CRC5.pack} method.
+* Fixed a require in `digest/crc8_1wire.rb`.
+
 ### 0.4.1 / 2014-04-16
 
 * Allow Digest CRC classes to be extended and their constants overriden.
