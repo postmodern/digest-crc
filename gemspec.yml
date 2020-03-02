@@ -9,6 +9,13 @@ license: MIT
 authors: Postmodern
 email: postmodern.mod3@gmail.com
 homepage: https://github.com/postmodern/digest-crc#readme
+
+metadata:
+  documentation_uri: https://rubydoc.info/gems/digest-crc
+  source_code_uri: https://github.com/postmodern/digest-crc
+  bug_tracker_uri: https://github.com/postmodern/digest-crc/issues
+  changelog_uri: https://github.com/postmodern/digest-crc/blob/master/ChangeLog.md
+
 has_yard: true
 
 development_dependencies:
