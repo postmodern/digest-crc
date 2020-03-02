@@ -1,5 +1,7 @@
 # Digest CRC
 
+[![Build Status](https://travis-ci.org/postmodern/digest-crc.svg?branch=master)](https://travis-ci.org/postmodern/digest-crc)
+
 * [Source](https://github.com/postmodern/digest-crc)
 * [Issues](https://github.com/postmodern/digest-crc/issues)
 * [Documentation](http://rubydoc.info/gems/digest-crc/frames)
