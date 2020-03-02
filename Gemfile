@@ -10,5 +10,6 @@ group :development do
 
   gem 'yard', '~> 0.9'
   gem 'kramdown'
+  gem 'kramdown-parser-gfm'
   gem 'github-markup', '~> 1.1'
 end
