@@ -9,6 +9,6 @@ group :development do
   gem 'rspec', '~> 3.0'
 
   gem 'yard', '~> 0.9'
-  gem 'redcarpet', '~> 3.1'
+  gem 'kramdown'
   gem 'github-markup', '~> 1.1'
 end
