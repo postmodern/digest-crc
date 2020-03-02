@@ -1,6 +1,9 @@
 require 'digest/crc32'
 
 module Digest
+  #
+  # Implements the CRC32 XFER algorithm.
+  #
   class CRC32XFER < CRC32
 
     INIT_CRC = 0x00000000
@@ -43,6 +46,12 @@ module Digest
       0x00006628, 0x00006687, 0x00006776, 0x000067d9, 0x00006494, 0x0000643b, 0x000065ca, 0x00006565
     ].freeze
 
+    #
+    # Updates the CRC32 XFER checksum.
+    #
+    # @param [String] data
+    #   The data to update the checksum with.
+    #
     def update(data)
       data.each_byte do |b|
         @crc = (@table[((@crc >> 24) ^ b) & 0xff] ^ (@crc << 8)) & 0xffffffff
