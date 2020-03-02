@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
                   $LOAD_PATH << lib_dir unless $LOAD_PATH.include?(lib_dir)
 
                   require 'digest/crc/version'
-                  Digest::Crc::VERSION
+                  Digest::CRC::VERSION
                 end
 
   gem.summary     = gemspec['summary']
