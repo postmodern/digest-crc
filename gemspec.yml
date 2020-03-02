@@ -12,4 +12,4 @@ homepage: https://github.com/postmodern/digest-crc#readme
 has_yard: true
 
 development_dependencies:
-  bundler: ~> 1.0
+  bundler: ~> 2.0
