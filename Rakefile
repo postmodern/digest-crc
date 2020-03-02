@@ -16,6 +16,4 @@ task :test => :spec
 task :default => :spec
 
 require 'yard'
-require 'redcarpet'
-require 'github-markup'
 YARD::Rake::YardocTask.new
