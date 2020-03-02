@@ -18,20 +18,30 @@ module.
   * {Digest::CRC1 CRC1}
   * {Digest::CRC5 CRC5}
   * {Digest::CRC8 CRC8}
-  * {Digest::CRC81Wire CRC8 1-Wire}
+  * {Digest::CRC8_1Wire CRC8 1-Wire}
+  * {Digest::CRC15 CRC15}
   * {Digest::CRC16 CRC16}
   * {Digest::CRC16CCITT CRC16 CCITT}
   * {Digest::CRC16DNP CRC16 DNP}
+  * {Digest::CRC16Genibus CRC16 Genibus}
+  * {Digest::CRC16Kermit CRC16 Kermit}
   * {Digest::CRC16Modbus CRC16 Modbus}
   * {Digest::CRC16USB CRC16 USB}
+  * {Digest::CRC16X25 CRC16 X25}
   * {Digest::CRC16XModem CRC16 XModem}
   * {Digest::CRC16ZModem CRC16 ZModem}
   * {Digest::CRC16QT CRC16 QT}
   * {Digest::CRC24 CRC24}
   * {Digest::CRC32 CRC32}
+  * {Digest::CRC32BZip2 CRC32 BZip2}
   * {Digest::CRC32c CRC32c}
-  * {Digest::CRC32Mpeg CRC32 Mpeg}
+  * {Digest::CRC32Jam CRC32 Jam}
+  * {Digest::CRC32MPEG CRC32 MPEG}
+  * {Digest::CRC32POSIX CRC32 POSIX}
+  * {Digest::CRC32XFER CRC32 XFER}
   * {Digest::CRC64 CRC64}
+  * {Digest::CRC64Jones CRC64 Jones}
+  * {Digest::CRC64XZ CRC64 XZ}
 * Pure Ruby implementation.
 * Provides CRC Tables for optimized calculations.
 

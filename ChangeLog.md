@@ -1,3 +1,18 @@
+### 0.5.0 / 2020-03-01
+
+* Added {Digest::CRC15}.
+* Added {Digest::CRC16Genibus}.
+* Added {Digest::CRC16Kermit}.
+* Added {Digest::CRC16X25}.
+* Added {Digest::CRC32BZip2}.
+* Added {Digest::CRC32Jam}.
+* Added {Digest::CRC32POSIX}.
+* Added {Digest::CRC32XFER}.
+* Added {Digest::CRC64Jones}.
+* Added {Digest::CRC64XZ}.
+* Renamed `Digest::CRC32Mpeg` to {Digest::CRC32MPEG}.
+* Renamed `Digest::CRC81Wire` to {Digest::CRC8_1Wire}.
+
 ### 0.4.2 / 2020-03-01
 
 * Corrected the logic in {Digest::CRC32#update}.
