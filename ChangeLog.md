@@ -1,3 +1,9 @@
+### 0.5.1 / 2020-03-03
+
+* Fixed XOR logic in {Digest::CRC16Genibus}.
+* Freeze all `TABLE` constants.
+* Added missing documentation.
+
 ### 0.5.0 / 2020-03-01
 
 * Added {Digest::CRC15}.
