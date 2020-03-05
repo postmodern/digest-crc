@@ -9,6 +9,7 @@ cache:
 rvm:
   - 2.5
   - 2.6
+  - 2.7
   - jruby
 matrix:
   allow_failures:
