@@ -17,8 +17,136 @@ module Digest
     # The bit width of the CRC checksum
     WIDTH = 0
 
+    # The polynomial code of the CRC checksum (required if use build_table)
+    POLYNOMIAL = nil
+
     # Default place holder CRC table
     TABLE = [].freeze
+
+    # Is the input code bit-reflected? (required if use build_table)
+    INPUT_REFLECTED = nil
+
+    #
+    # Build a CRC table.
+    #
+    # @param [Integer] width
+    #   The CRC bit width.
+    #
+    # @param [Integer] polynomial
+    #   The CRC polynomial code.
+    #
+    # @param [true,false] reflected
+    #   The CRC bit width.
+    #
+    # @param [Integer] slice
+    #   The CRC multiplier slices.
+    #   Give 1 if you want to the "standard table" algorithm.
+    #   Give 8 if you want to the "slicing by 8" algorithm.
+    #
+    # @param [Integer] slide
+    #   The number of slide bit per table.
+    #   Give 8 if you want to the "standard table" algorithm.
+    #   Give 4 if you want to the "half-byte table" algorithm.
+    #
+    # @param [true,false] padding
+    #   For forward input CRC of less than 8 bits, insert 0 into
+    #   the lower bit of each element to align in 8-bit units.
+    #   Processing at the time of calculation can be simplified.
+    #
+    # @param [true,false] freeze
+    #   Freeze the CRC lookup table if this is true.
+    #
+    # @return [Array]
+    #   The CRC lookup table.
+    #
+    #   If slice is less than 2, it will be an array of `[Integer, ..]`.
+    #   If slice is 2 or more, it will be an array of `[[Integer, ...], ...]`.
+    #
+    def self.build_table(width = self::WIDTH, polynomial = self::POLYNOMIAL,
+                         reflect = self::INPUT_REFLECTED,
+                         slice: 1, slide: 8, padding: true, freeze: true)
+      elems = 1 << slide
+
+      if reflect
+        polynomial = bitreflect(polynomial, width: width)
+        table = elems.times.map { |g|
+          slide.times {
+            carry = g[0]
+            g >>= 1
+            g ^= polynomial unless carry == 0
+          }
+          g
+        }
+
+        if slice > 1
+          table0 = table
+          table0.freeze if freeze
+          table = [table0]
+          carrymask = ~(-1 << slide)
+          (1...slice).each do
+            tprev = table[-1]
+            table << elems.times.map { |i|
+              g = tprev[i]
+              (g >> slide) ^ table0[g & carrymask]
+            }
+            table[-1].freeze if freeze
+          end
+        end
+      else
+        raise NotImplementedError, "need 8 for slide" unless slide == 8
+
+        if width < 8
+          topbit = 7
+          shift = 0
+          padding = padding ? 0 : 8 - width
+        else
+          topbit = width - 1
+          shift = width - 8
+          padding = 0
+        end
+
+        polynomial = polynomial << padding
+        carrymask = ~(-1 << topbit)
+
+        table = elems.times.map { |g|
+          g <<= shift
+          slide.times {
+            carry = g[topbit]
+            g = (g & carrymask) << 1
+            g ^= polynomial unless carry == 0
+          }
+          g >> padding
+        }
+
+        if slice > 1
+          table0 = table
+          table0.freeze if freeze
+          table = [table0]
+          carrymask = ~(-1 << shift)
+          (1...slice).each do
+            tprev = table[-1]
+            table << elems.times.map { |i|
+              g = tprev[i] << padding
+              g = ((g & carrymask) << 8) ^ table0[(g >> shift) & 0xff]
+              g >> padding
+            }
+            table[-1].freeze if freeze
+          end
+        end
+      end
+
+      table.freeze if freeze
+      table
+    end
+
+    def self.bitreflect(num, width: self::WIDTH)
+      renum = 0
+      width.times {
+        renum = (renum << 1) | num[0]
+        num >>= 1
+      }
+      renum
+    end
 
     #
     # Calculates the CRC checksum.
