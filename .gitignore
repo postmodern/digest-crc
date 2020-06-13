@@ -6,6 +6,5 @@ pkg
 /ext/digest/crc*/Makefile
 /ext/digest/crc*/mkmf.log
 /ext/digest/crc*/extconf.h
-/ext/digest/crc*/extconf.rb
 /ext/digest/crc*/*.o
 /ext/digest/crc*/*.so

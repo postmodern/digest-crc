@@ -27,18 +27,6 @@ DLEXT = MakeMakefile::CONFIG['DLEXT']
 CRCS.each do |crc|
   crc_ext = "#{crc}_ext"
 
-  file "#{crc}/extconf.rb" do |t|
-    File.write t.name, <<-EOF
-require 'mkmf'
-
-have_header("stdint.h")
-have_header('stddef.h')
-
-create_header
-create_makefile #{crc_ext.inspect}
-EOF
-  end
-
   file "#{crc}/Makefile" => "#{crc}/extconf.rb" do
     Dir.chdir(crc) do
       unless ruby('-S', 'extconf.rb')

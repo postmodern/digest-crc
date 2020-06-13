@@ -18,7 +18,6 @@ namespace :build do
 end
 
 require 'rake/clean'
-CLEAN.include('ext/digest/crc*/extconf.rb')
 CLEAN.include('ext/digest/crc*/extconf.h')
 CLEAN.include('ext/digest/crc*/Makefile')
 CLEAN.include('ext/digest/crc*/*.o')
