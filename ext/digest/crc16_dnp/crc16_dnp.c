@@ -1,14 +1,9 @@
-require 'digest/crc16'
+#include "crc16_dnp.h"
 
-module Digest
-  #
-  # Implements the CRC16 DNP algorithm.
-  #
-  class CRC16DNP < CRC16
-
-    INIT_CRC = 0
-
-    TABLE = [
+/**
+ * Static table used for the table_driven implementation.
+ */
+static const crc16_t crc16_dnp_table[256] = {
       0x0000,  0x365e,  0x6cbc,  0x5ae2,  0xd978,  0xef26,  0xb5c4,  0x839a,
       0xff89,  0xc9d7,  0x9335,  0xa56b,  0x26f1,  0x10af,  0x4a4d,  0x7c13,
       0xb26b,  0x8435,  0xded7,  0xe889,  0x6b13,  0x5d4d,  0x07af,  0x31f1,
@@ -41,29 +36,18 @@ module Digest
       0x23c4,  0x159a,  0x4f78,  0x7926,  0xfabc,  0xcce2,  0x9600,  0xa05e,
       0x6e26,  0x5878,  0x029a,  0x34c4,  0xb75e,  0x8100,  0xdbe2,  0xedbc,
       0x91af,  0xa7f1,  0xfd13,  0xcb4d,  0x48d7,  0x7e89,  0x246b,  0x1235
-    ].freeze
+};
 
-    #
-    # Updates the CRC16 DNP checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = ((@crc >> 8) ^ @table[(@crc ^ b) & 0xff])
-      end
 
-      return self
-    end
+crc16_t crc16_dnp_update(crc16_t crc, const void *data, size_t data_len)
+{
+    const unsigned char *d = (const unsigned char *)data;
+    unsigned int tbl_idx;
 
-    def finish
-      self.class.pack(~@crc)
-    end
-
-  end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc16_dnp/crc16_dnp_ext'; rescue LoadError; end
-end
+    while (data_len--) {
+        tbl_idx = (crc ^ *d) & 0xff;
+        crc = (crc << 8) ^ crc16_dnp_table[tbl_idx];
+        d++;
+    }
+    return crc & 0xffff;
+}
