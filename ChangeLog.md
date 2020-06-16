@@ -9,6 +9,9 @@
 
 #### Pure Ruby
 
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
            user     system      total        real
     Digest::CRC1#update  0.412953   0.000000   0.412953 (  0.414688)
     Digest::CRC5#update  1.116375   0.000003   1.116378 (  1.120741)
@@ -39,6 +42,9 @@
 
 #### C extensions
 
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
            user     system      total        real
     Digest::CRC1#update  0.407438   0.000000   0.407438 (  0.410495)
     Digest::CRC5#update  0.022873   0.000000   0.022873 (  0.023796)
