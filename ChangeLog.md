@@ -7,7 +7,7 @@
   compiled, then they will be loaded and override the pure-Ruby CRC methods with
   the C equivalents.
 
-#### Pure Ruby
+#### Pure Ruby (CRuby)
 
     Loading Digest::CRC classes ...
     Generating 1000 8Kb lengthed strings ...
@@ -40,7 +40,41 @@
     Digest::CRC64Jones#update  2.678003   0.000000   2.678003 (  2.691390)
     Digest::CRC64XZ#update  2.671395   0.000000   2.671395 (  2.682684)
 
-#### C extensions
+#### Pure-Ruby (JRuby)
+
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
+           user     system      total        real
+    Digest::CRC1#update  0.700000   0.070000   0.770000 (  0.436112)
+    Digest::CRC5#update  1.930000   0.050000   1.980000 (  1.084749)
+    Digest::CRC8#update  1.510000   0.060000   1.570000 (  0.979123)
+    Digest::CRC8_1Wire#update  0.730000   0.030000   0.760000 (  0.761309)
+    Digest::CRC15#update  1.760000   0.080000   1.840000 (  1.061413)
+    Digest::CRC16#update  1.560000   0.030000   1.590000 (  0.951273)
+    Digest::CRC16CCITT#update  1.700000   0.010000   1.710000 (  1.046854)
+    Digest::CRC16DNP#update  1.490000   0.000000   1.490000 (  0.902434)
+    Digest::CRC16Genibus#update  1.820000   0.020000   1.840000 (  1.030269)
+    Digest::CRC16Modbus#update  0.740000   0.010000   0.750000 (  0.738604)
+    Digest::CRC16QT#update  7.280000   0.040000   7.320000 (  6.399987)
+    Digest::CRC16USB#update  0.930000   0.000000   0.930000 (  0.801541)
+    Digest::CRC16X25#update  0.870000   0.000000   0.870000 (  0.805130)
+    Digest::CRC16XModem#update  1.320000   0.010000   1.330000 (  0.968956)
+    Digest::CRC16ZModem#update  1.300000   0.010000   1.310000 (  0.928303)
+    Digest::CRC24#update  1.550000   0.020000   1.570000 (  1.024450)
+    Digest::CRC32#update  1.260000   0.000000   1.260000 (  0.913814)
+    Digest::CRC32BZip2#update  1.210000   0.010000   1.220000 (  0.919086)
+    Digest::CRC32c#update  0.770000   0.010000   0.780000 (  0.761726)
+    Digest::CRC32Jam#update  0.930000   0.000000   0.930000 (  0.800468)
+    Digest::CRC32MPEG#update  1.240000   0.010000   1.250000 (  0.933962)
+    Digest::CRC32POSIX#update  1.290000   0.010000   1.300000 (  0.925254)
+    Digest::CRC32XFER#update  1.270000   0.000000   1.270000 (  0.920521)
+    Digest::CRC64#update  3.480000   0.020000   3.500000 (  2.883794)
+    Digest::CRC64Jones#update  2.740000   0.000000   2.740000 (  2.738251)
+    Digest::CRC64XZ#update  2.780000   0.010000   2.790000 (  2.715833)
+
+
+#### C extensions (CRuby)
 
     Loading Digest::CRC classes ...
     Generating 1000 8Kb lengthed strings ...
