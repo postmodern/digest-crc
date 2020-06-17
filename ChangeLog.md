@@ -7,7 +7,7 @@
   compiled, then they will be loaded and override the pure-Ruby CRC methods with
   the C equivalents.
 
-#### Pure Ruby (CRuby)
+#### pure-Ruby (CRuby)
 
     Loading Digest::CRC classes ...
     Generating 1000 8Kb lengthed strings ...
@@ -40,7 +40,7 @@
     Digest::CRC64Jones#update  2.678003   0.000000   2.678003 (  2.691390)
     Digest::CRC64XZ#update  2.671395   0.000000   2.671395 (  2.682684)
 
-#### Pure-Ruby (JRuby)
+#### pure-Ruby (JRuby)
 
     Loading Digest::CRC classes ...
     Generating 1000 8Kb lengthed strings ...
