@@ -44,6 +44,9 @@ module.
   * {Digest::CRC64XZ CRC64 XZ}
 * Pure Ruby implementation.
 * Provides CRC Tables for optimized calculations.
+* Supports _optional_ C extensions which increases performance by ~40x.
+  * If the C extensions cannot be compiled for whatever reason, digest-crc
+    will automatically fallback to the pure-Ruby implementation.
 
 ## Install
 
