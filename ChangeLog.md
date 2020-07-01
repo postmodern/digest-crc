@@ -1,4 +1,4 @@
-### 0.6.0 / 2020-06-16
+### 0.6.0 / 2020-07-01
 
 * Implement _optional_ C extensions for all CRC algorithms, resulting in an
   average performance improvement of ~40x. Note, if for whatever reason the
@@ -6,6 +6,7 @@
   CRC algorithms will be used instead. If the C extensions were successfully
   compiled, then they will be loaded and override the pure-Ruby CRC methods with
   the C equivalents.
+* Alias {Digest::CRC16QT} to {Digest::CRC16X25}, since they are effectively the same (@dearblue).
 
 #### pure-Ruby (ruby 2.7.1)
 
