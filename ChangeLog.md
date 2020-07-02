@@ -1,6 +1,7 @@
 ### 0.6.1 / 2020-07-02
 
-* Fix installation issues by adding missing runtime dependency, rake (@rogerluan).
+* Fix installation issues under bundler by adding rake as an explicit dependency
+  (@rogerluan).
 
 ### 0.6.0 / 2020-07-01
 
