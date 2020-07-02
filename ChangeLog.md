@@ -1,3 +1,7 @@
+### 0.6.1 / 2020-07-02
+
+* Fix installation issues by adding missing runtime dependency, rake (@rogerluan).
+
 ### 0.6.0 / 2020-07-01
 
 * Implement _optional_ C extensions for all CRC algorithms, resulting in an
@@ -174,4 +178,3 @@
   * CRC32
   * CRC32 Mpeg
   * CRC64
-
