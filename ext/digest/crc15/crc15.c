@@ -38,16 +38,17 @@ static const crc15_t crc15_table[256] = {
     0x276f, 0x62f6, 0x69c4, 0x2c5d, 0x7fa0, 0x3a39, 0x310b, 0x7492, 0x5368, 0x16f1, 0x1dc3, 0x585a, 0x0ba7, 0x4e3e, 0x450c, 0x0095
 };
 
-
 crc15_t crc15_update(crc15_t crc, const void *data, size_t data_len)
 {
-    const unsigned char *d = (const unsigned char *)data;
-    unsigned int tbl_idx;
+	const unsigned char *d = (const unsigned char *)data;
+	unsigned int tbl_idx;
 
-    while (data_len--) {
-        tbl_idx = ((crc >> 7) ^ *d) & 0xff;
-        crc = (crc15_table[tbl_idx] ^ (crc << 8)) & 0x7fff;
-        d++;
-    }
-    return crc & 0x7fff;
+	while (data_len--)
+	{
+		tbl_idx = ((crc >> 7) ^ *d) & 0xff;
+		crc = (crc15_table[tbl_idx] ^ (crc << 8)) & 0x7fff;
+		d++;
+	}
+
+	return crc & 0x7fff;
 }

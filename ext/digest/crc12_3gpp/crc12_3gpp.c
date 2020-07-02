@@ -40,27 +40,29 @@ static const crc12_t crc12_table[256] = {
 
 crc12_t crc_reflect(crc12_t data, size_t data_len)
 {
-    unsigned int i;
-    crc12_t ret;
+	unsigned int i;
+	crc12_t ret = data & 0x01;
 
-    ret = data & 0x01;
-    for (i = 1; i < data_len; i++) {
-        data >>= 1;
-        ret = (ret << 1) | (data & 0x01);
-    }
-    return ret;
+	for (i = 1; i < data_len; i++)
+	{
+		data >>= 1;
+		ret = (ret << 1) | (data & 0x01);
+	}
+
+	return ret;
 }
-
 
 crc12_t crc12_3gpp_update(crc12_t crc, const void *data, size_t data_len)
 {
-    const unsigned char *d = (const unsigned char *)data;
-    unsigned int tbl_idx;
+	const unsigned char *d = (const unsigned char *)data;
+	unsigned int tbl_idx;
 
-    while (data_len--) {
-        tbl_idx = ((crc >> 4) ^ *d) & 0xff;
-        crc = (crc12_table[tbl_idx] ^ (crc << 8)) & 0xfff;
-        d++;
-    }
-    return crc & 0xfff;
+	while (data_len--)
+	{
+		tbl_idx = ((crc >> 4) ^ *d) & 0xff;
+		crc = (crc12_table[tbl_idx] ^ (crc << 8)) & 0xfff;
+		d++;
+	}
+
+	return crc & 0xfff;
 }
