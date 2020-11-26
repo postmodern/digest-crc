@@ -21,7 +21,7 @@ jobs:
           - 2.6
           - 2.7
           - jruby
-    name: Ruby ${{ matrix.ruby }}
+    name: OS: ${{ matrix.os }} Ruby: ${{ matrix.ruby }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
