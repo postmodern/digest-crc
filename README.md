@@ -157,7 +157,7 @@ end
     Digest::CRC64XZ#update  3.019690   0.000000   3.019690 (  3.040971)
 
 ### C extensions (ruby 2.7.1)
-o
+
     $ bundle exec rake build:c_exts
     ...
     $ bundle exec ./benchmarks.rb
