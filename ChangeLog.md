@@ -1,3 +1,7 @@
+### 0.6.2 / 2020-12-01
+
+* Lower the rake dependency to `~> 12.0` for ruby 2.6.
+
 ### 0.6.1 / 2020-07-02
 
 * Fix installation issues under bundler by adding rake as an explicit dependency
