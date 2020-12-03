@@ -4,8 +4,9 @@
 * Fixed a bug in `ext/digest/Rakefile` which prevented digest-crc from being
   installed on systems where C extensions could not be successfully compiled.
   * Rake's `ruby` method, which in turn calls rake's `sh` method, raises
-    a `RuntimeError` exception causing rake to exit with an error code.
-    Instead, rescue any `RuntimeError` exceptions and fail gracefully.
+    a `RuntimeError` exception when the ruby command fails, causing rake to
+    exit with an error code. Instead, rescue any `RuntimeError` exceptions and
+    fail gracefully.
 
 ### 0.6.1 / 2020-07-02
 
