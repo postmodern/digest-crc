@@ -8,3 +8,4 @@ pkg
 /ext/digest/crc*/extconf.h
 /ext/digest/crc*/*.o
 /ext/digest/crc*/*.so
+/spec/integration/docker/digest-crc.gem
