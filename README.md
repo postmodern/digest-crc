@@ -54,6 +54,9 @@ module.
 gem install digest-crc
 ```
 
+**Note:** to enable the C extensions ensure that you are using CRuby and have
+a C compiler and `make` installed.
+
 ## Examples
 
 Calculate a CRC32:
