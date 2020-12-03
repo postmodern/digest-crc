@@ -55,7 +55,8 @@ gem install digest-crc
 ```
 
 **Note:** to enable the C extensions ensure that you are using CRuby and have
-a C compiler and `make` installed.
+a C compiler (`gcc` or `clang`) and `make` installed, _before_ installing
+digest-crc.
 
 ## Examples
 
