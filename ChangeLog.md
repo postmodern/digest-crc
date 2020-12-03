@@ -1,6 +1,11 @@
-### 0.6.2 / 2020-12-01
+### 0.6.2 / 2020-12-03
 
 * Lower the rake dependency to `~> 12.0` for ruby 2.6.
+* Fixed a but in `ext/digest/Rakefile` which prevented digest-crc from being
+  installed on systems where C extensions could not be successfully compiled.
+  * Rake's `ruby` method, which in turn calls rake's `sh` method, raises
+    a `RuntimeError` exception causing rake to exit with an error code.
+    Instead, rescue any `RuntimeError` exceptions and fail gracefully.
 
 ### 0.6.1 / 2020-07-02
 
