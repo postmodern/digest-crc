@@ -22,7 +22,7 @@ extensions:
 has_yard: true
 
 dependencies:
-  rake: [ ">= 12.0.0", "< 14.0.0"]
+  rake: ">= 12.0.0, < 14.0.0"
 
 development_dependencies:
   bundler: ~> 2.0
