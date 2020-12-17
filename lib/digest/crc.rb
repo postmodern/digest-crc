@@ -64,6 +64,22 @@ module Digest
     end
 
     #
+    # Determines whether the library is using the optimized C extensions
+    # implementation, or the pure-Ruby implementation.
+    #
+    # @return [:c_ext, :pure]
+    #
+    # @since 0.7.0
+    #
+    def self.implementation
+      if instance_method(:update).source_location.nil?
+        :c_ext
+      else
+        :pure
+      end
+    end
+
+    #
     # Initializes the CRC checksum.
     #
     def initialize

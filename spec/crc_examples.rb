@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 shared_examples_for "CRC" do
+  describe ".implementation" do
+    it do
+      expect(described_class.implementation).to be(:pure).or(be(:c_ext))
+    end
+  end
+
   it "should calculate a checksum for text" do
     expect(described_class.hexdigest(string)).to be == expected
   end
