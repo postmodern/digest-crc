@@ -1,3 +1,8 @@
+### 0.6.3 / 2020-12-19
+
+* Broaden rake dependency to >= 12.0.0, < 14.0.0` for ruby 2.7, which includes
+  rake 13.x.
+
 ### 0.6.2 / 2020-12-03
 
 * Lower the rake dependency to `~> 12.0` for ruby 2.6.
