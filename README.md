@@ -244,6 +244,12 @@ end
     Digest::CRC64Jones#update  2.630000   0.010000   2.640000 (  2.628016)
     Digest::CRC64XZ#update  3.200000   0.020000   3.220000 (  2.913442)
 
+## Crystal
+
+[digest-crc.cr] is a Crystal port of this library.
+
+[digest-crc.cr]: https://github.com/postmodern/digest-crc.cr
+
 ## Thanks
 
 Special thanks go out to the [pycrc](http://www.tty1.net/pycrc/) library
