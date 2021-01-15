@@ -246,9 +246,10 @@ end
 
 ## Crystal
 
-[digest-crc.cr] is a Crystal port of this library.
+[digest-crc.cr] is a [Crystal][crystal-lang] port of this library.
 
 [digest-crc.cr]: https://github.com/postmodern/digest-crc.cr
+[crystal-lang]: https://www.crystal-lang.org/
 
 ## Thanks
 
