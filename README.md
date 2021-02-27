@@ -1,6 +1,6 @@
 # Digest CRC
 
-[![Build Status](https://travis-ci.org/postmodern/digest-crc.svg?branch=master)](https://travis-ci.org/postmodern/digest-crc)
+[![CI](https://github.com/postmodern/digest-crc/actions/workflows/ruby.yml/badge.svg)](https://github.com/postmodern/digest-crc/actions/workflows/ruby.yml)
 
 * [Source](https://github.com/postmodern/digest-crc)
 * [Issues](https://github.com/postmodern/digest-crc/issues)
