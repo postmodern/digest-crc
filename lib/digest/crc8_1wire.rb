@@ -33,5 +33,9 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc8_1wire/crc8_1wire_ext'; rescue LoadError; end
+  begin;
+    require 'digest/crc8_1wire/crc8_1wire_ext'
+    return
+  rescue LoadError
+  end
 end

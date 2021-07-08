@@ -99,8 +99,21 @@ module Digest
 
       buffer
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc32/crc32_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC32
     #
+    # @!method update
     # Updates the CRC32 checksum.
     #
     # @param [String] data
@@ -115,8 +128,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc32/crc32_ext'; rescue LoadError; end
 end

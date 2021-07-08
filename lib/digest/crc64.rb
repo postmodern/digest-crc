@@ -103,7 +103,19 @@ module Digest
 
       buffer
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc64/crc64_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC64
     #
     # Updates the CRC64 checksum.
     #
@@ -119,8 +131,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc64/crc64_ext'; rescue LoadError; end
 end

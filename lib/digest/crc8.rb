@@ -42,7 +42,19 @@ module Digest
     def self.pack(crc)
       (crc & 0xff).chr
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc8/crc8_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC8
     #
     # Updates the CRC8 checksum.
     #
@@ -58,8 +70,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc8/crc8_ext'; rescue LoadError; end
 end

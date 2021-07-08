@@ -75,7 +75,23 @@ module Digest
       0xafb010b1, 0xab710d06, 0xa6322bdf, 0xa2f33668,
       0xbcb4666d, 0xb8757bda, 0xb5365d03, 0xb1f740b4
     ].freeze
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc32_mpeg/crc32_mpeg_ext'
+    module Digest
+      # @deprecated Please use {CRC32MPEG}
+      CRC32Mpeg = CRC32MPEG
+    end
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC32MPEG
     #
     # Updates the CRC32 Mpeg checksum.
     #
@@ -91,11 +107,6 @@ module Digest
     end
 
   end
-
   # @deprecated Please use {CRC32MPEG}.
   CRC32Mpeg = CRC32MPEG
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc32_mpeg/crc32_mpeg_ext'; rescue LoadError; end
 end

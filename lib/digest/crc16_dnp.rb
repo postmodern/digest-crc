@@ -43,6 +43,24 @@ module Digest
       0x91af,  0xa7f1,  0xfd13,  0xcb4d,  0x48d7,  0x7e89,  0x246b,  0x1235
     ].freeze
 
+    def finish
+      self.class.pack(~@crc)
+    end
+
+  end
+end
+
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc16_dnp/crc16_dnp_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC16DNP
+
     #
     # Updates the CRC16 DNP checksum.
     #
@@ -57,13 +75,5 @@ module Digest
       return self
     end
 
-    def finish
-      self.class.pack(~@crc)
-    end
-
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc16_dnp/crc16_dnp_ext'; rescue LoadError; end
 end

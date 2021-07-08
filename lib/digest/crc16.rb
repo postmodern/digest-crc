@@ -63,7 +63,19 @@ module Digest
 
       buffer
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc16/crc16_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC16
     #
     # Updates the CRC16 checksum.
     #
@@ -79,8 +91,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc16/crc16_ext'; rescue LoadError; end
 end

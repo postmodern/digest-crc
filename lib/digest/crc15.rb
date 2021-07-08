@@ -47,7 +47,19 @@ module Digest
 
       buffer
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc15/crc15_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC15
     #
     # Updates the CRC15 checksum.
     #
@@ -63,8 +75,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc15/crc15_ext'; rescue LoadError; end
 end
