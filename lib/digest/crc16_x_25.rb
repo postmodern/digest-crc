@@ -47,10 +47,13 @@ module Digest
       0xf78f, 0xe606, 0xd49d, 0xc514, 0xb1ab, 0xa022, 0x92b9, 0x8330,
       0x7bc7, 0x6a4e, 0x58d5, 0x495c, 0x3de3, 0x2c6a, 0x1ef1, 0x0f78
     ].freeze
-    
   end
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc16_x_25/crc16_x_25_ext'; rescue LoadError; end
+  begin;
+    require 'digest/crc16_x_25/crc16_x_25_ext'
+    return
+  rescue LoadError
+  end
 end

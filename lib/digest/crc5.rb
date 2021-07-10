@@ -55,7 +55,19 @@ module Digest
     def self.pack(crc)
       (crc & CRC_MASK).chr
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc5/crc5_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC5
     #
     # Updates the CRC5 checksum.
     #
@@ -71,8 +83,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc5/crc5_ext'; rescue LoadError; end
 end

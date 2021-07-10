@@ -48,5 +48,9 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc16_modbus/crc16_modbus_ext'; rescue LoadError; end
+  begin;
+    require 'digest/crc16_modbus/crc16_modbus_ext'
+    return
+  rescue LoadError
+  end
 end

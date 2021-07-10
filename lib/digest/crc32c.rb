@@ -78,5 +78,9 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc32c/crc32c_ext'; rescue LoadError; end
+  begin;
+    require 'digest/crc32c/crc32c_ext'
+    return
+  rescue LoadError
+  end
 end

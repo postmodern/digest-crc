@@ -84,5 +84,9 @@ module Digest
 end
 
 if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc64_jones/crc64_jones_ext'; rescue LoadError; end
+  begin;
+    require 'digest/crc64_jones/crc64_jones_ext'
+    return
+  rescue LoadError
+  end
 end

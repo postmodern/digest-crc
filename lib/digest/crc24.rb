@@ -64,7 +64,19 @@ module Digest
 
       buffer
     end
+  end
+end
 
+if RUBY_ENGINE == 'ruby'
+  begin;
+    require 'digest/crc24/crc24_ext'
+    return
+  rescue LoadError
+  end
+end
+
+module Digest
+  class CRC24
     #
     # Updates the CRC24 checksum.
     #
@@ -80,8 +92,4 @@ module Digest
     end
 
   end
-end
-
-if RUBY_ENGINE == 'ruby'
-  begin; require 'digest/crc24/crc24_ext'; rescue LoadError; end
 end
