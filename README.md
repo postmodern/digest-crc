@@ -210,6 +210,77 @@ end
     Digest::CRC64Jones#update     0.025331   0.000000   0.025331 (  0.025789)
     Digest::CRC64XZ#update        0.024131   0.000001   0.024132 (  0.024348)
 
+### Pure Ruby (ruby 3.0.2)
+
+    $ bundle exec rake clean
+    $ bundle exec ./benchmarks.rb
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
+                                      user     system      total        real
+    Digest::CRC1#update           0.331405   0.000002   0.331407 (  0.333588)
+    Digest::CRC5#update           1.206847   0.000020   1.206867 (  1.224072)
+    Digest::CRC8#update           1.018571   0.000000   1.018571 (  1.023002)
+    Digest::CRC8_1Wire#update     1.018802   0.000000   1.018802 (  1.023292)
+    Digest::CRC15#update          1.207586   0.000000   1.207586 (  1.212691)
+    Digest::CRC16#update          1.032505   0.000965   1.033470 (  1.040862)
+    Digest::CRC16CCITT#update     1.198079   0.000000   1.198079 (  1.203134)
+    Digest::CRC16DNP#update       0.994582   0.000000   0.994582 (  1.006520)
+    Digest::CRC16Genibus#update   1.190596   0.000000   1.190596 (  1.196087)
+    Digest::CRC16Modbus#update    1.007826   0.000000   1.007826 (  1.012934)
+    Digest::CRC16QT#update        0.996298   0.000001   0.996299 (  1.000255)
+    Digest::CRC16USB#update       0.995806   0.000000   0.995806 (  0.999822)
+    Digest::CRC16X25#update       1.019589   0.000000   1.019589 (  1.031010)
+    Digest::CRC16XModem#update    1.146947   0.000000   1.146947 (  1.150817)
+    Digest::CRC16ZModem#update    1.145145   0.000000   1.145145 (  1.149483)
+    Digest::CRC24#update          1.149009   0.000000   1.149009 (  1.152854)
+    Digest::CRC32#update          0.970976   0.000000   0.970976 (  0.974227)
+    Digest::CRC32BZip2#update     1.148596   0.000000   1.148596 (  1.152381)
+    Digest::CRC32c#update         0.972566   0.000000   0.972566 (  0.975790)
+    Digest::CRC32Jam#update       0.975854   0.000000   0.975854 (  0.979217)
+    Digest::CRC32MPEG#update      1.148578   0.000000   1.148578 (  1.153088)
+    Digest::CRC32POSIX#update     1.146218   0.000986   1.147204 (  1.152460)
+    Digest::CRC32XFER#update      1.149823   0.000000   1.149823 (  1.153692)
+    Digest::CRC64#update          2.869948   0.000016   2.869964 (  2.884261)
+    Digest::CRC64Jones#update     2.867662   0.000000   2.867662 (  2.886559)
+    Digest::CRC64XZ#update        2.858847   0.000000   2.858847 (  2.874058)
+
+### C Extensions (ruby 3.0.2)
+
+    $ bundle exec rake build:c_exts
+    ...
+    $ bundle exec ./benchmarks.rb
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
+                                      user     system      total        real
+    Digest::CRC1#update           0.349055   0.000000   0.349055 (  0.350454)
+    Digest::CRC5#update           0.023144   0.000000   0.023144 (  0.023248)
+    Digest::CRC8#update           0.021378   0.000000   0.021378 (  0.021522)
+    Digest::CRC8_1Wire#update     0.021019   0.000000   0.021019 (  0.021145)
+    Digest::CRC15#update          0.030063   0.000003   0.030066 (  0.030245)
+    Digest::CRC16#update          0.024395   0.000000   0.024395 (  0.024572)
+    Digest::CRC16CCITT#update     0.026979   0.000000   0.026979 (  0.027138)
+    Digest::CRC16DNP#update       0.024665   0.000000   0.024665 (  0.024844)
+    Digest::CRC16Genibus#update   0.027054   0.000000   0.027054 (  0.027217)
+    Digest::CRC16Modbus#update    0.023963   0.000000   0.023963 (  0.024257)
+    Digest::CRC16QT#update        0.024218   0.000000   0.024218 (  0.024360)
+    Digest::CRC16USB#update       0.024393   0.000000   0.024393 (  0.024561)
+    Digest::CRC16X25#update       0.025127   0.000000   0.025127 (  0.025292)
+    Digest::CRC16XModem#update    0.028123   0.000000   0.028123 (  0.028377)
+    Digest::CRC16ZModem#update    0.028205   0.000000   0.028205 (  0.028571)
+    Digest::CRC24#update          0.031386   0.000000   0.031386 (  0.031740)
+    Digest::CRC32#update          0.023832   0.000000   0.023832 (  0.023948)
+    Digest::CRC32BZip2#update     0.027159   0.000000   0.027159 (  0.027315)
+    Digest::CRC32c#update         0.024172   0.000000   0.024172 (  0.024310)
+    Digest::CRC32Jam#update       0.024376   0.000000   0.024376 (  0.024494)
+    Digest::CRC32MPEG#update      0.026035   0.000784   0.026819 (  0.026940)
+    Digest::CRC32POSIX#update     0.026784   0.000000   0.026784 (  0.026907)
+    Digest::CRC32XFER#update      0.026770   0.000000   0.026770 (  0.026893)
+    Digest::CRC64#update          0.024400   0.000009   0.024409 (  0.024531)
+    Digest::CRC64Jones#update     0.023477   0.000781   0.024258 (  0.024390)
+    Digest::CRC64XZ#update        0.024611   0.000000   0.024611 (  0.024779)
+
 ### Pure Ruby (jruby 9.2.18.0)
 
     $ bundle exec ./benchmarks.rb
