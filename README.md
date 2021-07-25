@@ -244,6 +244,78 @@ end
     Digest::CRC64Jones#update     2.710000   0.020000   2.730000 (  2.608007)
     Digest::CRC64XZ#update        2.910000   0.020000   2.930000 (  2.629401)
 
+### Pure Ruby (truffleruby 21.2.0)
+
+    $ bundle exec rake clean
+    $ bundle exec ./benchmarks.rb
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
+                                      user     system      total        real
+    Digest::CRC1#update           0.455340   0.000000   0.455340 (  0.457710)
+    Digest::CRC5#update           1.406700   0.000000   1.406700 (  1.412535)
+    Digest::CRC8#update           1.248323   0.000000   1.248323 (  1.255452)
+    Digest::CRC8_1Wire#update     1.269434   0.000000   1.269434 (  1.275315)
+    Digest::CRC15#update          1.428752   0.000000   1.428752 (  1.434836)
+    Digest::CRC16#update          1.220394   0.000967   1.221361 (  1.229684)
+    Digest::CRC16CCITT#update     1.434932   0.001000   1.435932 (  1.452391)
+    Digest::CRC16DNP#update       1.191351   0.000000   1.191351 (  1.202262)
+    Digest::CRC16Genibus#update   1.434067   0.000000   1.434067 (  1.440300)
+    Digest::CRC16Modbus#update    1.200827   0.000000   1.200827 (  1.205658)
+    Digest::CRC16QT#update        1.195077   0.000000   1.195077 (  1.200328)
+    Digest::CRC16USB#update       1.196266   0.000000   1.196266 (  1.201262)
+    Digest::CRC16X25#update       1.206690   0.000000   1.206690 (  1.211781)
+    Digest::CRC16XModem#update    1.430468   0.000000   1.430468 (  1.436801)
+    Digest::CRC16ZModem#update    1.442524   0.000000   1.442524 (  1.448624)
+    Digest::CRC24#update          1.447611   0.000018   1.447629 (  1.454534)
+    Digest::CRC32#update          1.214314   0.000000   1.214314 (  1.219838)
+    Digest::CRC32BZip2#update     1.427408   0.000000   1.427408 (  1.433626)
+    Digest::CRC32c#update         1.204985   0.000000   1.204985 (  1.210273)
+    Digest::CRC32Jam#update       1.235039   0.000000   1.235039 (  1.240686)
+    Digest::CRC32MPEG#update      1.429731   0.000000   1.429731 (  1.435404)
+    Digest::CRC32POSIX#update     1.458886   0.000000   1.458886 (  1.465914)
+    Digest::CRC32XFER#update      1.422109   0.000000   1.422109 (  1.427635)
+    Digest::CRC64#update          3.283506   0.000000   3.283506 (  3.303129)
+    Digest::CRC64Jones#update     3.297402   0.000000   3.297402 (  3.317357)
+    Digest::CRC64XZ#update        3.278551   0.001875   3.280426 (  3.315165)
+
+
+### C Extensions (truffleruby 21.2.0)
+
+    $ bundle exec rake build:c_exts
+    ...
+    $ bundle exec ./benchmarks.rb
+    Loading Digest::CRC classes ...
+    Generating 1000 8Kb lengthed strings ...
+    Benchmarking Digest::CRC classes ...
+                                      user     system      total        real
+    Digest::CRC1#update           0.480586   0.000014   0.480600 (  0.482817)
+    Digest::CRC5#update           0.023795   0.000000   0.023795 (  0.023941)
+    Digest::CRC8#update           0.020619   0.000000   0.020619 (  0.020747)
+    Digest::CRC8_1Wire#update     0.020571   0.000000   0.020571 (  0.020700)
+    Digest::CRC15#update          0.031224   0.000000   0.031224 (  0.031412)
+    Digest::CRC16#update          0.024013   0.000000   0.024013 (  0.024174)
+    Digest::CRC16CCITT#update     0.026790   0.000000   0.026790 (  0.027079)
+    Digest::CRC16DNP#update       0.024253   0.000000   0.024253 (  0.024427)
+    Digest::CRC16Genibus#update   0.027237   0.000000   0.027237 (  0.027390)
+    Digest::CRC16Modbus#update    0.024376   0.000000   0.024376 (  0.024548)
+    Digest::CRC16QT#update        0.024361   0.000000   0.024361 (  0.024518)
+    Digest::CRC16USB#update       0.024142   0.000000   0.024142 (  0.024311)
+    Digest::CRC16X25#update       0.024098   0.000000   0.024098 (  0.024222)
+    Digest::CRC16XModem#update    0.026306   0.000000   0.026306 (  0.026502)
+    Digest::CRC16ZModem#update    0.026536   0.000000   0.026536 (  0.026688)
+    Digest::CRC24#update          0.029732   0.000000   0.029732 (  0.029902)
+    Digest::CRC32#update          0.024219   0.000000   0.024219 (  0.024391)
+    Digest::CRC32BZip2#update     0.026817   0.000000   0.026817 (  0.027044)
+    Digest::CRC32c#update         0.023681   0.000000   0.023681 (  0.023798)
+    Digest::CRC32Jam#update       0.024243   0.000000   0.024243 (  0.024419)
+    Digest::CRC32MPEG#update      0.026865   0.000000   0.026865 (  0.027020)
+    Digest::CRC32POSIX#update     0.026583   0.000000   0.026583 (  0.026748)
+    Digest::CRC32XFER#update      0.027423   0.000000   0.027423 (  0.027615)
+    Digest::CRC64#update          0.024150   0.000000   0.024150 (  0.024310)
+    Digest::CRC64Jones#update     0.024218   0.000000   0.024218 (  0.024363)
+    Digest::CRC64XZ#update        0.024124   0.000000   0.024124 (  0.024255)
+
 ## Crystal
 
 [digest-crc.cr] is a [Crystal][crystal-lang] port of this library.
