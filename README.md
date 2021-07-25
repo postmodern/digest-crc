@@ -139,7 +139,7 @@ end
 
 ## Benchmarks
 
-### Pure Ruby (ruby 2.7.4)
+### Ruby 2.7.4 (pure Ruby)
 
     $ bundle exec rake clean
     $ bundle exec ./benchmarks.rb
@@ -174,7 +174,7 @@ end
     Digest::CRC64Jones#update     3.195204   0.000000   3.195204 (  3.213054)
     Digest::CRC64XZ#update        3.173597   0.000000   3.173597 (  3.190438)
 
-### C extensions (ruby 2.7.4)
+### Ruby 2.7.4 (C extensions)
 
     $ bundle exec rake build:c_exts
     ...
@@ -210,7 +210,7 @@ end
     Digest::CRC64Jones#update     0.025331   0.000000   0.025331 (  0.025789)
     Digest::CRC64XZ#update        0.024131   0.000001   0.024132 (  0.024348)
 
-### Pure Ruby (ruby 3.0.2)
+### Ruby 3.0.2 (pure Ruby)
 
     $ bundle exec rake clean
     $ bundle exec ./benchmarks.rb
@@ -245,7 +245,7 @@ end
     Digest::CRC64Jones#update     2.867662   0.000000   2.867662 (  2.886559)
     Digest::CRC64XZ#update        2.858847   0.000000   2.858847 (  2.874058)
 
-### C Extensions (ruby 3.0.2)
+### Ruby 3.0.2 (C extensions)
 
     $ bundle exec rake build:c_exts
     ...
@@ -281,7 +281,7 @@ end
     Digest::CRC64Jones#update     0.023477   0.000781   0.024258 (  0.024390)
     Digest::CRC64XZ#update        0.024611   0.000000   0.024611 (  0.024779)
 
-### Pure Ruby (jruby 9.2.18.0)
+### JRuby 9.2.18.0 (pure Ruby)
 
     $ bundle exec ./benchmarks.rb
     Loading Digest::CRC classes ...
@@ -315,7 +315,7 @@ end
     Digest::CRC64Jones#update     2.710000   0.020000   2.730000 (  2.608007)
     Digest::CRC64XZ#update        2.910000   0.020000   2.930000 (  2.629401)
 
-### Pure Ruby (truffleruby 21.2.0)
+### TruffleRuby 21.2.0 (pure Ruby)
 
     $ bundle exec rake clean
     $ bundle exec ./benchmarks.rb
@@ -351,7 +351,7 @@ end
     Digest::CRC64XZ#update        3.278551   0.001875   3.280426 (  3.315165)
 
 
-### C Extensions (truffleruby 21.2.0)
+### TruffleRuby 21.2.0 (C extensions)
 
     $ bundle exec rake build:c_exts
     ...
