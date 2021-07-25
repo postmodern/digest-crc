@@ -5,7 +5,6 @@
 * [Source](https://github.com/postmodern/digest-crc)
 * [Issues](https://github.com/postmodern/digest-crc/issues)
 * [Documentation](http://rubydoc.info/gems/digest-crc/frames)
-* [Email](mailto:postmodern.mod3 at gmail.com)
 
 ## Description
 
