@@ -15,33 +15,33 @@ module.
 ## Features
 
 * Provides support for the following CRC algorithms:
-  * {Digest::CRC1 CRC1}
-  * {Digest::CRC5 CRC5}
-  * {Digest::CRC8 CRC8}
-  * {Digest::CRC8_1Wire CRC8 1-Wire}
-  * {Digest::CRC15 CRC15}
-  * {Digest::CRC16 CRC16}
-  * {Digest::CRC16CCITT CRC16 CCITT}
-  * {Digest::CRC16DNP CRC16 DNP}
-  * {Digest::CRC16Genibus CRC16 Genibus}
-  * {Digest::CRC16Kermit CRC16 Kermit}
-  * {Digest::CRC16Modbus CRC16 Modbus}
-  * {Digest::CRC16USB CRC16 USB}
-  * {Digest::CRC16X25 CRC16 X25}
-  * {Digest::CRC16XModem CRC16 XModem}
-  * {Digest::CRC16ZModem CRC16 ZModem}
-  * {Digest::CRC16QT CRC16 QT}
-  * {Digest::CRC24 CRC24}
-  * {Digest::CRC32 CRC32}
-  * {Digest::CRC32BZip2 CRC32 BZip2}
-  * {Digest::CRC32c CRC32c}
-  * {Digest::CRC32Jam CRC32 Jam}
-  * {Digest::CRC32MPEG CRC32 MPEG}
-  * {Digest::CRC32POSIX CRC32 POSIX}
-  * {Digest::CRC32XFER CRC32 XFER}
-  * {Digest::CRC64 CRC64}
-  * {Digest::CRC64Jones CRC64 Jones}
-  * {Digest::CRC64XZ CRC64 XZ}
+  * [CRC1](https://rubydoc.info/gems/digest-crc/Digest/CRC1)
+  * [CRC5](https://rubydoc.info/gems/digest-crc/Digest/CRC5)
+  * [CRC8](https://rubydoc.info/gems/digest-crc/Digest/CRC8)
+  * [CRC8 1-Wire](https://rubydoc.info/gems/digest-crc/Digest/CRC8_1Wire)
+  * [CRC15](https://rubydoc.info/gems/digest-crc/Digest/CRC15)
+  * [CRC16](https://rubydoc.info/gems/digest-crc/Digest/CRC16)
+  * [CRC16 CCITT](https://rubydoc.info/gems/digest-crc/Digest/CRC16CCITT)
+  * [CRC16 DNP](https://rubydoc.info/gems/digest-crc/Digest/CRC16DNP)
+  * [CRC16 Genibus](https://rubydoc.info/gems/digest-crc/Digest/CRC16Genibus)
+  * [CRC16 Kermit](https://rubydoc.info/gems/digest-crc/Digest/CRC16Kermit)
+  * [CRC16 Modbus](https://rubydoc.info/gems/digest-crc/Digest/CRC16Modbus)
+  * [CRC16 USB](https://rubydoc.info/gems/digest-crc/Digest/CRC16USB)
+  * [CRC16 X25](https://rubydoc.info/gems/digest-crc/Digest/CRC16X25)
+  * [CRC16 XModem](https://rubydoc.info/gems/digest-crc/Digest/CRC16XModem)
+  * [CRC16 ZModem](https://rubydoc.info/gems/digest-crc/Digest/CRC16ZModem)
+  * [CRC16 QT](https://rubydoc.info/gems/digest-crc/Digest/CRC16QT)
+  * [CRC24](https://rubydoc.info/gems/digest-crc/Digest/CRC24)
+  * [CRC32](https://rubydoc.info/gems/digest-crc/Digest/CRC32)
+  * [CRC32 BZip2](https://rubydoc.info/gems/digest-crc/Digest/CRC32BZip2)
+  * [CRC32c](https://rubydoc.info/gems/digest-crc/Digest/CRC32c)
+  * [CRC32 Jam](https://rubydoc.info/gems/digest-crc/Digest/CRC32Jam)
+  * [CRC32 MPEG](https://rubydoc.info/gems/digest-crc/Digest/CRC32MPEG)
+  * [CRC32 POSIX](https://rubydoc.info/gems/digest-crc/Digest/CRC32POSIX)
+  * [CRC32 XFER](https://rubydoc.info/gems/digest-crc/Digest/CRC32XFER)
+  * [CRC64](https://rubydoc.info/gems/digest-crc/Digest/CRC64)
+  * [CRC64 Jones](https://rubydoc.info/gems/digest-crc/Digest/CRC64Jones)
+  * [CRC64 XZ](https://rubydoc.info/gems/digest-crc/Digest/CRC64XZ)
 * Pure Ruby implementation.
 * Provides CRC Tables for optimized calculations.
 * Supports _optional_ C extensions which increases performance by ~40x.
