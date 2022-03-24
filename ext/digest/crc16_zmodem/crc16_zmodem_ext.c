@@ -24,6 +24,10 @@ void Init_crc16_zmodem_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC16ZModem = rb_const_get(mDigest, rb_intern("CRC16ZModem"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_undef_method(cCRC16ZModem, "update");
 	rb_define_method(cCRC16ZModem, "update", Digest_CRC16ZModem_update, 1);
 }

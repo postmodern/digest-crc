@@ -24,4 +24,14 @@ shared_examples_for "CRC" do
 
     expect(crc.checksum).to be == expected.to_i(16)
   end
+
+  if defined?(Ractor)
+    it "should calculate CRC inside ractor" do
+      digest = Ractor.new(described_class, string) do |klass, string|
+        klass.hexdigest(string)
+      end.take
+
+      expect(digest).to eq expected
+    end
+  end
 end

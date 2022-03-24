@@ -24,5 +24,9 @@ void Init_crc16_modbus_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC16Modbus = rb_const_get(mDigest, rb_intern("CRC16Modbus"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_define_method(cCRC16Modbus, "update", Digest_CRC16Modbus_update, 1);
 }

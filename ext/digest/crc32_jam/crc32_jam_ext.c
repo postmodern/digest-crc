@@ -23,5 +23,9 @@ void Init_crc32_jam_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC32Jam = rb_const_get(mDigest, rb_intern("CRC32Jam"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_define_method(cCRC32Jam, "update", Digest_CRC32Jam_update, 1);
 }

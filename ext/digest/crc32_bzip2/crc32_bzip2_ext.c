@@ -23,6 +23,10 @@ void Init_crc32_bzip2_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC32Bzip2 = rb_const_get(mDigest, rb_intern("CRC32BZip2"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_undef_method(cCRC32Bzip2, "update");
 	rb_define_method(cCRC32Bzip2, "update", Digest_CRC32Bzip2_update, 1);
 }

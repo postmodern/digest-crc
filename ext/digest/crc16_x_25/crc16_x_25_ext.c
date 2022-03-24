@@ -24,5 +24,9 @@ void Init_crc16_x_25_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC16X25 = rb_const_get(mDigest, rb_intern("CRC16X25"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_define_method(cCRC16X25, "update", Digest_CRC16X25_update, 1);
 }

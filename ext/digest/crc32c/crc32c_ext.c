@@ -23,5 +23,9 @@ void Init_crc32c_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC32c = rb_const_get(mDigest, rb_intern("CRC32c"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_define_method(cCRC32c, "update", Digest_CRC32c_update, 1);
 }

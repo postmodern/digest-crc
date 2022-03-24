@@ -24,6 +24,10 @@ void Init_crc15_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC15 = rb_const_get(mDigest, rb_intern("CRC15"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_undef_method(cCRC15, "update");
 	rb_define_method(cCRC15, "update", Digest_CRC15_update, 1);
 }
