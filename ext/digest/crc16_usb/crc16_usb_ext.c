@@ -24,5 +24,9 @@ void Init_crc16_usb_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC16USB = rb_const_get(mDigest, rb_intern("CRC16USB"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_define_method(cCRC16USB, "update", Digest_CRC16USB_update, 1);
 }

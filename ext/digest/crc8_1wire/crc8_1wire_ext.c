@@ -23,5 +23,9 @@ void Init_crc8_1wire_ext()
 	VALUE mDigest = rb_const_get(rb_cObject, rb_intern("Digest"));
 	VALUE cCRC81Wire = rb_const_get(mDigest, rb_intern("CRC8_1Wire"));
 
+	#ifdef HAVE_RB_EXT_RACTOR_SAFE
+		rb_ext_ractor_safe(true);
+	#endif
+
 	rb_define_method(cCRC81Wire, "update", Digest_CRC81Wire_update, 1);
 }
