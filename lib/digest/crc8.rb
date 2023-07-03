@@ -31,19 +31,6 @@ module Digest
     ].freeze
 
     #
-    # Packs the CRC8 checksum.
-    #
-    # @param [Integer] crc
-    #   The checksum to pack.
-    #
-    # @return [String]
-    #   The packed checksum.
-    #
-    def self.pack(crc)
-      (crc & 0xff).chr
-    end
-
-    #
     # Updates the CRC8 checksum.
     #
     # @param [String] data

@@ -45,10 +45,15 @@ module Digest
     # @return [String]
     #   The packed CRC checksum.
     #
-    # @abstract
-    #
     def self.pack(crc)
-      raise(NotImplementedError,"#{self.class}##{__method__} not implemented")
+      width = self::WIDTH
+      raise(NotImplementedError, "#{self} is incompleted as CRC") unless width > 0
+      bitclass = width + (-width & 0x07)
+      len = bitclass / 8
+      crc = ~(-1 << width) & crc
+      result = [crc].pack("Q>")
+      result[0, result.size - len] = ""
+      result
     end
 
     #

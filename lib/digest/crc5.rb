@@ -44,19 +44,6 @@ module Digest
     end
 
     #
-    # Packs the CRC8 checksum.
-    #
-    # @param [Integer] crc
-    #   The checksum to pack.
-    #
-    # @return [String]
-    #   The packed checksum.
-    #
-    def self.pack(crc)
-      (crc & CRC_MASK).chr
-    end
-
-    #
     # Updates the CRC5 checksum.
     #
     # @param [String] data

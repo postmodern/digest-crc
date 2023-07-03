@@ -47,25 +47,6 @@ module Digest
     ].freeze
 
     #
-    # Packs the CRC24 checksum.
-    #
-    # @param [Integer] crc
-    #   The checksum to pack.
-    #
-    # @return [String]
-    #   The packed checksum.
-    #
-    def self.pack(crc)
-      buffer = ''
-
-      buffer << ((crc & 0xff0000) >> 16).chr
-      buffer << ((crc & 0x00ff00) >> 8).chr
-      buffer << (crc & 0x0000ff).chr
-
-      buffer
-    end
-
-    #
     # Updates the CRC24 checksum.
     #
     # @param [String] data
