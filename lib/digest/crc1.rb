@@ -6,6 +6,8 @@ module Digest
   #
   class CRC1 < CRC
 
+    WIDTH = 1
+
     #
     # Packs the CRC1 checksum.
     #
