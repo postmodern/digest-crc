@@ -1,3 +1,8 @@
+### 0.6.5 / 2023-07-03
+
+* Corrected the implementation of {Digest::CRC5}.
+* Make `digest-crc` Ractor-safe.
+
 ### 0.6.4 / 2021-07-14
 
 * Silence potential method redefinition warnings when loading the C extensions.
