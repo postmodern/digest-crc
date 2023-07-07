@@ -46,7 +46,7 @@ crc16_t crc16_dnp_update(crc16_t crc, const void *data, size_t data_len)
 	while (data_len--)
 	{
 		tbl_idx = (crc ^ *d) & 0xff;
-		crc = (crc << 8) ^ crc16_dnp_table[tbl_idx];
+		crc = (crc >> 8) ^ crc16_dnp_table[tbl_idx];
 		d++;
 	}
 
