@@ -8,6 +8,8 @@ module Digest
 
     INIT_CRC = 0
 
+    XOR_MASK = 0xffff
+
     TABLE = [
       0x0000,  0x365e,  0x6cbc,  0x5ae2,  0xd978,  0xef26,  0xb5c4,  0x839a,
       0xff89,  0xc9d7,  0x9335,  0xa56b,  0x26f1,  0x10af,  0x4a4d,  0x7c13,
@@ -55,10 +57,6 @@ module Digest
       end
 
       return self
-    end
-
-    def finish
-      self.class.pack(~@crc)
     end
 
   end
