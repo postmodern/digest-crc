@@ -6,6 +6,8 @@ module Digest
   #
   class CRC32POSIX < CRC32
 
+    REFLECT_INPUT = false
+
     INIT_CRC = 0x00000000
 
     TABLE = [
@@ -42,20 +44,6 @@ module Digest
     0x89b8fd09, 0x8d79e0be, 0x803ac667, 0x84fbdbd0, 0x9abc8bd5, 0x9e7d9662, 0x933eb0bb, 0x97ffad0c,
     0xafb010b1, 0xab710d06, 0xa6322bdf, 0xa2f33668, 0xbcb4666d, 0xb8757bda, 0xb5365d03, 0xb1f740b4
     ].freeze
-
-    #
-    # Updates the CRC32 POSIX checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = (@table[((@crc >> 24) ^ b) & 0xff] ^ (@crc << 8)) & 0xffffffff
-      end
-
-      return self
-    end
 
   end
 end

@@ -6,6 +6,8 @@ module Digest
   #
   class CRC32XFER < CRC32
 
+    REFLECT_INPUT = false
+
     INIT_CRC = 0x00000000
 
     XOR_MASK = 0x00000000
@@ -45,20 +47,6 @@ module Digest
       0x00006350, 0x000063ff, 0x0000620e, 0x000062a1, 0x000061ec, 0x00006143, 0x000060b2, 0x0000601d,
       0x00006628, 0x00006687, 0x00006776, 0x000067d9, 0x00006494, 0x0000643b, 0x000065ca, 0x00006565
     ].freeze
-
-    #
-    # Updates the CRC32 XFER checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = (@table[((@crc >> 24) ^ b) & 0xff] ^ (@crc << 8)) & 0xffffffff
-      end
-
-      return self
-    end
 
   end
 end

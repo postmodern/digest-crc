@@ -8,6 +8,8 @@ module Digest
 
     WIDTH = 5
 
+    REFLECT_INPUT = true
+
     INIT_CRC = 0x1f
 
     XOR_MASK = 0x1f
@@ -41,20 +43,6 @@ module Digest
       @crc_mask = self.class.const_get(:CRC_MASK)
 
       super
-    end
-
-    #
-    # Updates the CRC5 checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = ((@table[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & @crc_mask)
-      end
-
-      return self
     end
 
   end

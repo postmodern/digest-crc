@@ -17,6 +17,9 @@ module Digest
     # The bit width of the CRC checksum
     WIDTH = 0
 
+    # Define true or false whether the input direction is bit reversed or not of the CRC checksum
+    REFLECT_INPUT = nil
+
     # Default place holder CRC table
     TABLE = [].freeze
 
@@ -64,10 +67,11 @@ module Digest
     # Initializes the CRC checksum.
     #
     def initialize
-      @init_crc = self.class.const_get(:INIT_CRC)
-      @xor_mask = self.class.const_get(:XOR_MASK)
-      @width    = self.class.const_get(:WIDTH)
-      @table    = self.class.const_get(:TABLE)
+      @init_crc      = self.class.const_get(:INIT_CRC)
+      @xor_mask      = self.class.const_get(:XOR_MASK)
+      @width         = self.class.const_get(:WIDTH)
+      @reflect_input = self.class.const_get(:REFLECT_INPUT)
+      @table         = self.class.const_get(:TABLE)
 
       reset
     end
@@ -97,10 +101,57 @@ module Digest
     # @param [String] data
     #   The data to update the CRC checksum with.
     #
-    # @abstract
+    # @raise [NotImplementedError]
+    #   If WIDTH, TABLE, or REFLECT_INPUT constants are not set properly.
     #
     def update(data)
-      raise(NotImplementedError,"#{self.class}##{__method__} not implemented")
+      unless @width >= 1
+        raise(NotImplementedError, "incompleted #{self.class} as CRC (expected WIDTH to be 1 or more)")
+      end
+
+      if @table.empty?
+        raise(NotImplementedError, "incompleted #{self.class} as CRC (expected TABLE to be not empty)")
+      end
+
+      if @reflect_input.nil?
+        raise(NotImplementedError, "incompleted #{self.class} as CRC (expected REFLECT_INPUT to be not nil)")
+      end
+
+      table = @table
+      crc   = @crc
+
+      if @reflect_input
+        if @width > 8
+          data.each_byte do |b|
+            crc = table[b ^ (0xff & crc)] ^ (crc >> 8)
+          end
+        else
+          data.each_byte do |b|
+            # Omit (crc >> 8) since bits upper than the lower 8 bits are always 0
+            crc = table[b ^ (0xff & crc)]
+          end
+        end
+      else
+        if @width > 8
+          higher_bit_off = @width - 8
+          remain_mask    = ~(-1 << higher_bit_off)
+
+          data.each_byte do |b|
+            crc = table[b ^ (0xff & (crc >> higher_bit_off))] ^ ((remain_mask & crc) << 8)
+          end
+        else
+          padding = 8 - @width
+
+          data.each_byte do |b|
+            # Omit (crc << 8) since bits lower than the upper 8 bits are always 0
+            crc = table[b ^ (0xff & (crc << padding))]
+          end
+        end
+      end
+
+      @crc = crc
+
+      self
     end
 
     #
