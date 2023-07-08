@@ -6,6 +6,8 @@ module Digest
   #
   class CRC16DNP < CRC16
 
+    REFLECT_INPUT = true
+
     INIT_CRC = 0
 
     TABLE = [
@@ -42,20 +44,6 @@ module Digest
       0x6e26,  0x5878,  0x029a,  0x34c4,  0xb75e,  0x8100,  0xdbe2,  0xedbc,
       0x91af,  0xa7f1,  0xfd13,  0xcb4d,  0x48d7,  0x7e89,  0x246b,  0x1235
     ].freeze
-
-    #
-    # Updates the CRC16 DNP checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = ((@crc >> 8) ^ @table[(@crc ^ b) & 0xff])
-      end
-
-      return self
-    end
 
     def finish
       self.class.pack(~@crc)

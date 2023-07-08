@@ -8,6 +8,8 @@ module Digest
 
     WIDTH = 64
 
+    REFLECT_INPUT = true
+
     INIT_CRC = 0x0000000000000000
 
     XOR_MASK = 0x0000000000000000
@@ -79,20 +81,6 @@ module Digest
       0x9480000000000000, 0x9530000000000000, 0x97e0000000000000, 0x9650000000000000,
       0x9240000000000000, 0x93f0000000000000, 0x9120000000000000, 0x9090000000000000
     ].freeze
-
-    #
-    # Updates the CRC64 checksum.
-    #
-    # @param [String] data
-    #   The data to update the checksum with.
-    #
-    def update(data)
-      data.each_byte do |b|
-        @crc = ((@table[(@crc ^ b) & 0xff] ^ (@crc >> 8)) & 0xffffffffffffffff)
-      end
-
-      return self
-    end
 
   end
 end

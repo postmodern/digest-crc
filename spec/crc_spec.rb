@@ -25,6 +25,8 @@ describe Digest::CRC do
       Class.new(described_class).tap do |klass|
         klass::WIDTH = 16
 
+        klass::REFLECT_INPUT = true
+
         klass::INIT_CRC = 0x01
 
         klass::XOR_MASK = 0x02
@@ -35,6 +37,10 @@ describe Digest::CRC do
 
     it "should override WIDTH" do
       expect(subject::WIDTH).not_to be described_class::WIDTH
+    end
+
+    it "should override REFLECT_INPUT" do
+      expect(subject::REFLECT_INPUT).not_to be described_class::REFLECT_INPUT
     end
 
     it "should override INIT_CRC" do
@@ -64,8 +70,66 @@ describe Digest::CRC do
         expect(instance.instance_variable_get("@width")).to be subject::WIDTH
       end
 
+      it "should initialize @reflect_input" do
+        expect(instance.instance_variable_get("@reflect_input")).to be subject::REFLECT_INPUT
+      end
+
       it "should initialize @table" do
         expect(instance.instance_variable_get("@table")).to be subject::TABLE
+      end
+    end
+  end
+
+  context "when incomplete class with WIDTH to zero" do
+    subject do
+      Class.new(described_class).tap do |klass|
+        klass::WIDTH         = 0
+        klass::REFLECT_INPUT = true
+        klass::TABLE         = [1, 2, 3, 4].freeze
+      end
+    end
+
+    describe "#update" do
+      let(:instance) { subject.new }
+
+      it "should WIDTH not to be zero" do
+        expect { instance.update "" }.to raise_error(NotImplementedError)
+      end
+    end
+  end
+
+  context "when incomplete class with REFLECT_INPUT to nil" do
+    subject do
+      Class.new(described_class).tap do |klass|
+        klass::WIDTH         = 8
+        klass::REFLECT_INPUT = nil
+        klass::TABLE         = [1, 2, 3, 4].freeze
+      end
+    end
+
+    describe "#update" do
+      let(:instance) { subject.new }
+
+      it "should REFLECT_INPUT not to be nil" do
+        expect { instance.update "" }.to raise_error(NotImplementedError)
+      end
+    end
+  end
+
+  context "when incomplete class with TABLE to empty" do
+    subject do
+      Class.new(described_class).tap do |klass|
+        klass::WIDTH         = 8
+        klass::REFLECT_INPUT = true
+        klass::TABLE         = [].freeze
+      end
+    end
+
+    describe "#update" do
+      let(:instance) { subject.new }
+
+      it "should TABLE not to be empty" do
+        expect { instance.update "" }.to raise_error(NotImplementedError)
       end
     end
   end
