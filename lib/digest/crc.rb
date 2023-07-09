@@ -46,13 +46,17 @@ module Digest
     #   The packed CRC checksum.
     #
     def self.pack(crc)
-      width = self::WIDTH
-      raise(NotImplementedError, "#{self} is incompleted as CRC") unless width > 0
-      bitclass = width + (-width & 0x07)
-      len = bitclass / 8
-      crc = ~(-1 << width) & crc
+      unless (width = self::WIDTH) > 0
+        raise(NotImplementedError, "#{self} is incompleted as CRC")
+      end
+
+      bitclass   = width + (-width & 0x07)
+      byte_count = bitclass / 8
+
+      crc &= ~(-1 << width)
+
       result = [crc].pack("Q>")
-      result[0, result.size - len] = ""
+      result[0, result.bytesize - byte_count] = ""
       result
     end
 
