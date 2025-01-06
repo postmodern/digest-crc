@@ -40,6 +40,7 @@ module.
   * [CRC32 XFER](https://rubydoc.info/gems/digest-crc/Digest/CRC32XFER)
   * [CRC64](https://rubydoc.info/gems/digest-crc/Digest/CRC64)
   * [CRC64 Jones](https://rubydoc.info/gems/digest-crc/Digest/CRC64Jones)
+  * [CRC64 NVMe](https://rubydoc.info/gems/digest-crc/Digest/CRC64Nvme)
   * [CRC64 XZ](https://rubydoc.info/gems/digest-crc/Digest/CRC64XZ)
 * Pure Ruby implementation.
 * Provides CRC Tables for optimized calculations.

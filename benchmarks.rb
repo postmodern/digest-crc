@@ -29,6 +29,7 @@ CRCs = {
   'crc32_xfer'    => 'CRC32XFER',
   'crc64'         => 'CRC64',
   'crc64_jones'   => 'CRC64Jones',
+  'crc64_nvme'    => 'CRC64NVMe',
   'crc64_xz'      => 'CRC64XZ',
 }
 
