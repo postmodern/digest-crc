@@ -1,3 +1,9 @@
+### 0.7.0 / 2025-01-28
+
+* Added {Digest::CRC64NVMe}.
+* Added {Digest::CRC.implementation}.
+* Reduced duplicate code.
+
 ### 0.6.5 / 2023-07-03
 
 * Corrected the implementation of {Digest::CRC5}.
