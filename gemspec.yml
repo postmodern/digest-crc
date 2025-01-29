@@ -19,8 +19,6 @@ metadata:
 extensions:
  - ext/digest/Rakefile
 
-has_yard: true
-
 dependencies:
   rake: ">= 12.0.0, < 14.0.0"
 
