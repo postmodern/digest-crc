@@ -19,6 +19,8 @@ metadata:
 extensions:
  - ext/digest/Rakefile
 
+required_ruby_version: '>= 3.0.0'
+
 dependencies:
   rake: ">= 12.0.0, < 14.0.0"
 
