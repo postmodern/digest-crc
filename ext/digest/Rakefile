@@ -36,6 +36,10 @@ CRCS.each do |crc|
       begin
         sh 'make', 'clean'
         sh 'make'
+
+        sh 'strip', '-S', crc_ext_lib if File.exist?(crc_ext_lib)
+
+        Dir.glob('*.o').each { |o| File.delete(o) }
       rescue
         fail_gracefully "Unable to build C extensions"
       end
