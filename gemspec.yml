@@ -25,4 +25,4 @@ dependencies:
   rake: ">= 12.0.0, < 14.0.0"
 
 development_dependencies:
-  bundler: ~> 2.0
+  bundler: '>= 2.0'
