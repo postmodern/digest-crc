@@ -61,9 +61,16 @@ shared_examples_for "CRC" do
 
   if defined?(Ractor)
     it "should calculate CRC inside ractor" do
-      digest = Ractor.new(described_class, string) { |klass, string|
+      ractor = Ractor.new(described_class, string) do |klass, string|
         klass.hexdigest(string)
-      }.take
+      end
+
+      # NOTE: Ractor#take was replaced with Ractor#value in 4.0.0
+      digest = if RUBY_VERSION >= '4.0.0'
+                 ractor.value
+               else
+                 ractor.take
+               end
 
       expect(digest).to eq expected
     end
