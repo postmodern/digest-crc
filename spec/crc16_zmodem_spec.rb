@@ -3,8 +3,8 @@ require 'crc_examples'
 require 'digest/crc16_zmodem'
 
 describe Digest::CRC16ZModem do
-  let(:string) { '1234567890' }
-  let(:expected) { 'd321' }
+  let(:string) { '1234567890123456789' }
+  let(:expected) { '93a9' }
 
   it_should_behave_like "CRC"
 end
