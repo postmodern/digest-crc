@@ -24,6 +24,19 @@ shared_examples_for "CRC" do
     expect(crc.hexdigest).to be == expected
   end
 
+  it "should calculate the same checksum for long data as one byte at a time" do
+    data = Array.new(600) { |i| (i * 151 + 7) & 0xff }.pack('C*')
+
+    [0, 1, 7, 8, 9, 15, 16, 17, 100, 600].each do |length|
+      chunk = data.byteslice(0, length)
+
+      crc = described_class.new
+      chunk.each_byte { |b| crc << b.chr }
+
+      expect(described_class.hexdigest(chunk)).to eq(crc.hexdigest)
+    end
+  end
+
   it "should provide direct access to the checksum value" do
     crc = subject
     crc << string
