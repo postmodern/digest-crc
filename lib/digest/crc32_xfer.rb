@@ -48,6 +48,8 @@ module Digest
       0x00006628, 0x00006687, 0x00006776, 0x000067d9, 0x00006494, 0x0000643b, 0x000065ca, 0x00006565
     ].freeze
 
+    SLICING_TABLE = slicing_table
+
   end
 end
 

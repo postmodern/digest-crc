@@ -74,6 +74,8 @@ module Digest
       0xbe2da0a5, 0x4c4623a6, 0x5f16d052, 0xad7d5351
     ].freeze
 
+    SLICING_TABLE = slicing_table
+
   end
 end
 

@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'digest/crc'
+require 'digest/crc32_mpeg'
 
 describe Digest::CRC do
   describe "#block_length" do
@@ -131,6 +132,45 @@ describe Digest::CRC do
       it "should TABLE not to be empty" do
         expect { instance.update "" }.to raise_error(NotImplementedError)
       end
+    end
+  end
+
+  context "when a subclass defines its own REFLECT_INPUT and TABLE" do
+    subject do
+      Class.new(Digest::CRC32) do
+        const_set(:REFLECT_INPUT, false)
+        const_set(:XOR_MASK, 0x00000000)
+        const_set(:TABLE, Digest::CRC32MPEG::TABLE)
+      end
+    end
+
+    let(:data) { Array.new(1000) { |i| (i * 151 + 7) & 0xff }.pack("C*") }
+
+    it "should calculate the checksum with its own TABLE" do
+      # The C extension's #update always uses its own table.
+      skip "Digest::CRC32 uses its C extension" unless Digest::CRC32.implementation == :pure
+
+      expect(subject.hexdigest(data)).to eq(Digest::CRC32MPEG.hexdigest(data))
+    end
+  end
+
+  context "when a subclass defines only its own REFLECT_INPUT" do
+    subject do
+      Class.new(Digest::CRC32) do
+        const_set(:REFLECT_INPUT, false)
+      end
+    end
+
+    let(:data) { Array.new(1000) { |i| (i * 151 + 7) & 0xff }.pack("C*") }
+
+    it "should calculate the same checksum for long data as one byte at a time" do
+      # The C extension's #update ignores REFLECT_INPUT.
+      skip "Digest::CRC32 uses its C extension" unless Digest::CRC32.implementation == :pure
+
+      crc = subject.new
+      data.each_byte { |b| crc << b.chr }
+
+      expect(subject.hexdigest(data)).to eq(crc.hexdigest)
     end
   end
 end

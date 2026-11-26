@@ -45,6 +45,8 @@ module Digest
       0x91af,  0xa7f1,  0xfd13,  0xcb4d,  0x48d7,  0x7e89,  0x246b,  0x1235
     ].freeze
 
+    SLICING_TABLE = slicing_table
+
     def finish
       self.class.pack(~@crc)
     end

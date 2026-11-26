@@ -78,6 +78,8 @@ module Digest
       0xbcb4666d, 0xb8757bda, 0xb5365d03, 0xb1f740b4
     ].freeze
 
+    SLICING_TABLE = slicing_table
+
   end
 
   # @deprecated Please use {CRC32MPEG}.
