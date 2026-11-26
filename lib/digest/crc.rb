@@ -56,7 +56,9 @@ module Digest
       bitclass   = width + (-width & 0x07)
       byte_count = bitclass / 8
 
-      crc &= ~(-1 << width)
+      # Not ~(-1 << width): shifting a negative Integer that far allocates a
+      # temporary Bignum.
+      crc &= (1 << width) - 1
 
       result = [crc].pack("Q>")
       result[0, result.bytesize - byte_count] = ""
@@ -135,32 +137,38 @@ module Digest
 
       table = @table
       crc   = @crc
+      i     = 0
+      n     = data.bytesize
 
       if @reflect_input
         if @width > 8
-          data.each_byte do |b|
-            crc = table[b ^ (0xff & crc)] ^ (crc >> 8)
+          while i < n
+            crc = table[data.getbyte(i) ^ (0xff & crc)] ^ (crc >> 8)
+            i += 1
           end
         else
-          data.each_byte do |b|
+          while i < n
             # Omit (crc >> 8) since bits upper than the lower 8 bits are always 0
-            crc = table[b ^ (0xff & crc)]
+            crc = table[data.getbyte(i) ^ (0xff & crc)]
+            i += 1
           end
         end
       else
         if @width > 8
           higher_bit_off = @width - 8
-          remain_mask    = ~(-1 << higher_bit_off)
+          remain_mask    = (1 << higher_bit_off) - 1
 
-          data.each_byte do |b|
-            crc = table[b ^ (0xff & (crc >> higher_bit_off))] ^ ((remain_mask & crc) << 8)
+          while i < n
+            crc = table[data.getbyte(i) ^ (0xff & (crc >> higher_bit_off))] ^ ((remain_mask & crc) << 8)
+            i += 1
           end
         else
           padding = 8 - @width
 
-          data.each_byte do |b|
+          while i < n
             # Omit (crc << 8) since bits lower than the upper 8 bits are always 0
-            crc = table[b ^ (0xff & (crc << padding))]
+            crc = table[data.getbyte(i) ^ (0xff & (crc << padding))]
+            i += 1
           end
         end
       end
